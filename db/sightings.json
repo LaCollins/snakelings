@@ -1,0 +1,32 @@
+{
+  "sighting1": {
+    "identified": true,
+    "snakeId": "snake1",
+    "stateId": "TN",
+    "county": "Montgomery",
+    "imageUrl": "https://user-images.githubusercontent.com/51382883/72484643-8a36f380-37ca-11ea-869d-37a3705111e5.png",
+    "uid": "5678",
+    "dateFound": "1/15/2020",
+    "description": "Stumbled across this snake while hiking near dunbar cave"
+  },
+  "sighting2": {
+    "identified": true,
+    "snakeId": "snake2",
+    "stateId": "TN",
+    "county": "Montgomery",
+    "imageUrl": "https://user-images.githubusercontent.com/51382883/72484643-8a36f380-37ca-11ea-869d-37a3705111e5.png",
+    "uid": "12345",
+    "dateFound": "1/20/2020",
+    "description": "Was in my back yard"
+  },
+  "sighting3": {
+    "identified": true,
+    "snakeId": "snake3",
+    "stateId": "TN",
+    "county": "Montgomery",
+    "imageUrl": "https://user-images.githubusercontent.com/51382883/72484643-8a36f380-37ca-11ea-869d-37a3705111e5.png",
+    "uid": "12345",
+    "dateFound": "2/20/2020",
+    "description": "Under the car"
+  }
+}
