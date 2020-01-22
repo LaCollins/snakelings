@@ -3,11 +3,26 @@ import './NavBar.scss';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
-import googleLogo from './images/GoogleLogo.png';
+import PropTypes from 'prop-types';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
+import Auth from '../../pages/Auth/Auth';
 import snakeLogo from './images/SnakelingsLogo3.png';
 
 class NavBar extends React.Component {
+  static propTypes = {
+    authed: PropTypes.bool,
+  }
+
+  logMeOut = (e) => {
+    e.preventDefault();
+    firebase.auth().signOut();
+  }
+
   render() {
+    const { authed } = this.props;
+
     return (
   <div className="NavBar">
     <Navbar bg="dark" expand="lg" variant="dark" className="fixed-top">
@@ -19,7 +34,9 @@ class NavBar extends React.Component {
             <Nav.Link href="#link">Sightings</Nav.Link>
             <Nav.Link href="#link">FAQ</Nav.Link>
             <Nav.Link href="#link">About</Nav.Link>
-            <Button variant="dark"><img src={googleLogo} id="googleLogo" alt="Google Logo" /> Log In</Button>
+            { authed
+              ? (<Button variant="dark" onClick={this.logMeOut}>Log Out</Button>)
+              : (<Auth />) }
           </Nav>
         </Navbar.Collapse>
       </Navbar>
