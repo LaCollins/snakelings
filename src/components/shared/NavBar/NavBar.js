@@ -1,10 +1,10 @@
 import React from 'react';
 import './NavBar.scss';
-import snakeLogo from './images/SnakelingsLogo3.png';
-import googleLogo from './images/GoogleLogo.png';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
+import googleLogo from './images/GoogleLogo.png';
+import snakeLogo from './images/SnakelingsLogo3.png';
 
 class NavBar extends React.Component {
   render() {
