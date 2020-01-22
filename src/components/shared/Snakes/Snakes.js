@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Snakes.scss';
 
@@ -7,6 +8,7 @@ class Snakes extends React.Component {
     return (
       <div className="Snakes">
         <h1>Snakes</h1>
+        <Link className="btn btn-dark" to="/snakes/:snakeId">Single</Link>
       </div>
     );
   }
