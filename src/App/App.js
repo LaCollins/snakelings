@@ -9,6 +9,13 @@ import './App.scss';
 
 import NavBar from '../components/shared/NavBar/NavBar';
 import firebaseConnection from '../helpers/data/connection';
+import Home from '../components/pages/Home/Home';
+import SightingForm from '../components/pages/SightingForm/SightingForm';
+import SingleSnake from '../components/pages/SingleSnake/SingleSnake';
+import SnakeForm from '../components/pages/SnakeForm/SnakeForm';
+import UserSightings from '../components/pages/UserSightings/UserSightings';
+import Sightings from '../components/shared/Sightings/Sightings';
+import Snakes from '../components/shared/Snakes/Snakes';
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
   const routeChecker = (props) => (authed === false ? <Component {...props} {...rest}/> : <Redirect to={{ pathname: '/', state: { from: props.location } }} />);
@@ -16,7 +23,7 @@ const PublicRoute = ({ component: Component, authed, ...rest }) => {
 };
 
 const PrivateRoute = ({ component: Component, authed, ...rest }) => {
-  const routeChecker = (props) => (authed === true ? <Component {...props} {...rest}/> : <Redirect to={{ pathname: '/auth', state: { from: props.location } }} />);
+  const routeChecker = (props) => (authed === true ? <Component {...props} {...rest}/> : <Redirect to={{ pathname: '/', state: { from: props.location } }} />);
   return <Route {...rest} render={(props) => routeChecker(props)} />;
 };
 
@@ -49,6 +56,14 @@ class App extends React.Component {
         <Router>
           <NavBar authed={authed}/>
             <Switch>
+              <Route path="/" exact component={Home} authed={authed}/>
+              <Route path="/snakes" exact component={Snakes} authed={authed}/>
+              <Route path="/snakes/:snakeId" exact component={SingleSnake} authed={authed} />
+              <Route path="/identify" exact component={SnakeForm} authed={authed}/>
+              <Route path="/sightings" exact component={Sightings} authed={authed} />
+              <PrivateRoute path="/sightings/user/:userId" exact component={UserSightings} authed={authed} />
+              <PrivateRoute path="/sightings/new" exact component={SightingForm} authed={authed} />
+              <PrivateRoute path="/sightings/:sightingId/edit" exact component={SightingForm} authed={authed}/>
             </Switch>
         </Router>
       </div>

@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { Link } from 'react-router-dom';
 
 import Auth from '../../pages/Auth/Auth';
 import snakeLogo from './images/SnakelingsLogo3.png';
@@ -26,14 +27,12 @@ class NavBar extends React.Component {
     return (
   <div className="NavBar">
     <Navbar bg="dark" expand="lg" variant="dark" className="fixed-top">
-      <Navbar.Brand href="#home"><img id="snakeLogo" src={snakeLogo} alt="snakelings logo" /></Navbar.Brand>
+      <Navbar.Brand><Link to="/"><img id="snakeLogo" src={snakeLogo} alt="snakelings logo" /></Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="#home">Snakes</Nav.Link>
-            <Nav.Link href="#link">Sightings</Nav.Link>
-            <Nav.Link href="#link">FAQ</Nav.Link>
-            <Nav.Link href="#link">About</Nav.Link>
+          <Link to="/snakes" className="nav-link">Snakes</Link>
+            <Link to="/sightings" className="nav-link">Sightings</Link>
             { authed
               ? (<Button variant="dark" onClick={this.logMeOut}>Log Out</Button>)
               : (<Auth />) }
