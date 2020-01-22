@@ -9,6 +9,8 @@ class Snakes extends React.Component {
       <div className="Snakes">
         <h1>Snakes</h1>
         <Link className="btn btn-dark" to="/snakes/:snakeId">Single</Link>
+
+        <Link className="btn btn-dark" to="/identify">Identify</Link>
       </div>
     );
   }
