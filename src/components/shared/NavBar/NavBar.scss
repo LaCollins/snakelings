@@ -1,0 +1,19 @@
+.NavBar {
+  display: block;
+
+  #snakeLogo {
+    height: 100px;
+  }
+
+  #googleLogo {
+    height: 20px;
+  }
+
+  .logInButton {
+    padding: 10px;
+  }
+
+  .fixed-top {
+    box-shadow: 0 10px 10px #888888;
+  }
+}
