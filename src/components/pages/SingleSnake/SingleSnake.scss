@@ -9,4 +9,17 @@
     border: 4px solid $slate;
     margin: 5px;
   }
+
+  p {
+    font-size: large;
+  }
+  .venom {
+    color: red;
+    font-size: larger;
+  }
+
+  .non-venom {
+    color: green;
+    font-size: larger;
+  }
 }
