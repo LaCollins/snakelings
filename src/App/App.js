@@ -15,12 +15,12 @@ import SingleSnake from '../components/pages/SingleSnake/SingleSnake';
 import SnakeForm from '../components/pages/SnakeForm/SnakeForm';
 import UserSightings from '../components/pages/UserSightings/UserSightings';
 import Sightings from '../components/shared/Sightings/Sightings';
-import Snakes from '../components/shared/Snakes/Snakes';
+import Snakes from '../components/pages/Snakes/Snakes';
 
-const PublicRoute = ({ component: Component, authed, ...rest }) => {
-  const routeChecker = (props) => (authed === false ? <Component {...props} {...rest}/> : <Redirect to={{ pathname: '/', state: { from: props.location } }} />);
-  return <Route {...rest} render={(props) => routeChecker(props)} />;
-};
+// const PublicRoute = ({ component: Component, authed, ...rest }) => {
+//   const routeChecker = (props) => (authed === false ? <Component {...props} {...rest}/> : <Redirect to={{ pathname: '/', state: { from: props.location } }} />);
+//   return <Route {...rest} render={(props) => routeChecker(props)} />;
+// };
 
 const PrivateRoute = ({ component: Component, authed, ...rest }) => {
   const routeChecker = (props) => (authed === true ? <Component {...props} {...rest}/> : <Redirect to={{ pathname: '/', state: { from: props.location } }} />);
