@@ -22,6 +22,9 @@ const getAllSnakes = () => new Promise((resolve, reject) => {
     });
 });
 
+const getSingleSnake = (snakeId) => axios.get(`${baseUrl}/snakelings/${snakeId}.json`);
+
 export default {
   getAllSnakes,
+  getSingleSnake,
 };
