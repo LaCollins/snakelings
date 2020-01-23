@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './Home.scss';
 import timberRattler from './images/timberRattler.png';
 

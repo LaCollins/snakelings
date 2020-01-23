@@ -439,7 +439,7 @@
   "snake24": {
     "commonName": "Eastern Indigo Snake",
     "scientificName": "Drymarchon corais couperi",
-    "imageUrl": "http://www.stewart.army.mil/dpw/fish/indigoaorlongDIRK2.jpg",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Eastern_Indigo_Snake.jpg",
     "venomous": false,
     "diet": "snakes, turtles, lizards, frogs, toads, birds, eggs, small mammals",
     "size": "72-84 in",    
