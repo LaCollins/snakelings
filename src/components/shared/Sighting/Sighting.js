@@ -30,7 +30,7 @@ class Sighting extends React.Component {
 
     return (
       <div className="Sighting">
-        <div className="card h-100">
+        <div className="card m-3">
           <div className="card-body">
             <div className="row">
             <img className="card-img col-4" src={sighting.imageUrl} alt={sighting.date}/>

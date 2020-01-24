@@ -24,7 +24,7 @@ class Sightings extends React.Component {
     return (
       <div className="Sightings">
         <h1>Reported Sightings</h1>
-        <div className="sightings row d-flex flex-wrap">
+        <div className="d-flex flex-wrap justify-content-center">
           {this.state.sightings.map((sighting) => <Sighting key={sighting.id} sighting={sighting} />)}
         </div>
         <Link className="btn btn-dark" to="/sightings/user/:userId">Manage</Link>
