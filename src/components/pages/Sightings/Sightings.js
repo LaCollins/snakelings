@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import firebase from 'firebase/app';
 import Sighting from '../../shared/Sighting/Sighting';
 import sightingsData from '../../../helpers/data/sightingsData';
+import 'firebase/auth';
 
 import './Sightings.scss';
 
 class Sightings extends React.Component {
   state = {
     sightings: [],
+    authed: false,
   }
 
   getSightings = () => {
@@ -18,18 +21,33 @@ class Sightings extends React.Component {
 
   componentDidMount() {
     this.getSightings();
+    this.checkUser();
+  }
+
+  checkUser = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ authed: true });
+      } else {
+        this.setState({ authed: false });
+      }
+    });
   }
 
   render() {
+    const { authed } = this.state;
     return (
       <div className="Sightings">
         <h1>Reported Sightings</h1>
+        {
+          authed
+            ? (<Link className="btn btn-dark m-2" to="/sightings/user/:userId">Manage My Sightings</Link>)
+            : ('')
+        }
+        <Link className="btn btn-dark m-2" to="/sightings/new">Report Sighting</Link>
         <div className="d-flex flex-wrap justify-content-center">
           {this.state.sightings.map((sighting) => <Sighting key={sighting.id} sighting={sighting} />)}
         </div>
-        <Link className="btn btn-dark" to="/sightings/user/:userId">Manage</Link>
-        <Link className="btn btn-dark" to="/sightings/new">New</Link>
-        <Link className="btn btn-dark" to="/sightings/:sightingId/edit">Edit</Link>
       </div>
     );
   }
