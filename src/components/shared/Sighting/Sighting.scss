@@ -1,3 +1,16 @@
 .Sighting {
   display: block;
+
+  .card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+  .reportedImage {
+    height: 200px;
+  }
+
+  .reportCard {
+    width: 400px;
+  }
 }

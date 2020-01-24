@@ -45,7 +45,7 @@ class Sightings extends React.Component {
             : ('')
         }
         <Link className="btn btn-dark m-2" to="/sightings/new">Report Sighting</Link>
-        <div className="d-flex flex-wrap justify-content-center">
+        <div className="wrap d-flex row justify-content-center">
           {this.state.sightings.map((sighting) => <Sighting key={sighting.id} sighting={sighting} />)}
         </div>
       </div>
