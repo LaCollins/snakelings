@@ -15,7 +15,14 @@ class Sightings extends React.Component {
 
   getSightings = () => {
     sightingsData.getAllSightings()
-      .then((sightings) => this.setState({ sightings }))
+      .then((sightings) => {
+        sightings.sort((a, b) => {
+          if (a.stateId < b.stateId) return -1;
+          if (a.stateId > b.stateId) return 1;
+          return 0;
+        });
+        this.setState({ sightings });
+      })
       .catch((error) => console.error('error from sightings', error));
   }
 
