@@ -11,6 +11,7 @@ class Sightings extends React.Component {
   state = {
     sightings: [],
     authed: false,
+    userId: '',
   }
 
   getSightings = () => {
@@ -35,6 +36,7 @@ class Sightings extends React.Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ authed: true });
+        this.setState({ userId: user.uid });
       } else {
         this.setState({ authed: false });
       }
@@ -48,13 +50,13 @@ class Sightings extends React.Component {
   }
 
   render() {
-    const { authed } = this.state;
+    const { authed, userId } = this.state;
     return (
       <div className="Sightings">
         <h1>Reported Sightings</h1>
         {
           authed
-            ? (<Link className="btn btn-dark m-2" to="/sightings/user/:userId">Manage My Sightings</Link>)
+            ? (<Link className="btn btn-dark m-2" to={`/sightings/user/${userId}`}>Manage My Sightings</Link>)
             : ('')
         }
         {

@@ -21,7 +21,7 @@ const getAllSightings = () => new Promise((resolve, reject) => {
 });
 
 const getSightingsByUid = (uid) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/sightings.json?orderBy="uid"&equalTo"${uid}"`)
+  axios.get(`${baseUrl}/sightings.json?orderBy="uid"&equalTo="${uid}"`)
     .then((result) => {
       const allSightingsObj = result.data;
       const sightings = [];
@@ -34,13 +34,21 @@ const getSightingsByUid = (uid) => new Promise((resolve, reject) => {
       }
       resolve(sightings);
     })
-    .catch((error) => reject(error));
+    .catch((err) => {
+      reject(err);
+    });
 });
 
+const getSingleSighting = (sightingId) => axios.get(`${baseUrl}/sightings/${sightingId}.json`);
+
 const saveSighting = (sightingInfo) => axios.post(`${baseUrl}/sightings.json`, sightingInfo);
+
+const updateSighting = (sightingId, newSightingInfo) => axios.put(`${baseUrl}/sightings/${sightingId}.json`, newSightingInfo);
 
 export default {
   getAllSightings,
   getSightingsByUid,
   saveSighting,
+  getSingleSighting,
+  updateSighting,
 };
