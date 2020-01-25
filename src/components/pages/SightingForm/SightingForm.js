@@ -63,8 +63,10 @@ class SightingForm extends React.Component {
       .catch((error) => console.error('error from get snakes', error));
   }
 
+
   componentDidMount() {
     const { snakeId } = this.props.match.params;
+    const { sightingId } = this.props.match.params;
     this.getStates();
     if (snakeId) {
       snakelingsData.getSingleSnake(snakeId)
@@ -76,6 +78,25 @@ class SightingForm extends React.Component {
         .catch((error) => console.error('err from snakeForm', error));
     } else {
       this.getSnakes();
+    }
+
+    if (sightingId) {
+      sightingsData.getSingleSighting(sightingId)
+        .then((request) => {
+          const sighting = request.data;
+          this.setState({ identified: sighting.identified });
+          this.setState({ snakeId: sighting.snakeId });
+          this.setState({ stateId: sighting.stateId });
+          this.setState({ county: sighting.county });
+          this.setState({ imageUrl: sighting.imageUrl });
+          this.setState({ dateFound: sighting.dateFound });
+          this.setState({ description: sighting.description });
+          snakelingsData.getSingleSnake(this.state.snakeId)
+            .then((response) => {
+              this.setState({ singleSnake: response.data });
+            });
+        })
+        .catch((error) => console.error('err from edit mode', error));
     }
   }
 
@@ -126,7 +147,7 @@ class SightingForm extends React.Component {
       singleSnake,
     } = this.state;
 
-    const { snakeId } = this.props.match.params;
+    const { snakeId, sightingId } = this.props.match.params;
 
     return (
       <div className="SightingForm">
@@ -194,7 +215,7 @@ class SightingForm extends React.Component {
               disabled={identified ? null : 'disabled'}
               >
                 {
-                  snakeId
+                  snakeId || sightingId
                     ? (<option value={snakeId}>{singleSnake.commonName}</option>)
                     : (<option value=''>Select...</option>)
                 }

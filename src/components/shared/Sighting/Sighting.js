@@ -72,8 +72,8 @@ class Sighting extends React.Component {
                           {
                             userId
                               ? (<div className="card-footer col">
-                                <Link className="btn btn-dark" to={`/sightings/${sighting.id}/edit`}><i class="fas fa-edit"></i></Link>
-                                <button className="btn btn-dark mt-3"><i class="fas fa-trash-alt"></i></button>
+                                <Link className="btn btn-dark" to={`/sightings/${sighting.id}/edit`}><i className="fas fa-edit"></i></Link>
+                                <button className="btn btn-dark mt-3"><i className="fas fa-trash-alt"></i></button>
                               </div>)
                               : ('')
                           }

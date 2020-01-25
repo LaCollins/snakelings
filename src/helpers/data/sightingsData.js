@@ -39,10 +39,13 @@ const getSightingsByUid = (uid) => new Promise((resolve, reject) => {
     });
 });
 
+const getSingleSighting = (sightingId) => axios.get(`${baseUrl}/sightings/${sightingId}.json`);
+
 const saveSighting = (sightingInfo) => axios.post(`${baseUrl}/sightings.json`, sightingInfo);
 
 export default {
   getAllSightings,
   getSightingsByUid,
   saveSighting,
+  getSingleSighting,
 };
