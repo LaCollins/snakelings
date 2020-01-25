@@ -18,6 +18,7 @@ class SightingForm extends React.Component {
     snakes: [],
     states: [],
     singleSnake: {},
+    singleState: {},
   }
 
   saveSightingEvent = (e) => {
@@ -94,6 +95,10 @@ class SightingForm extends React.Component {
           snakelingsData.getSingleSnake(this.state.snakeId)
             .then((response) => {
               this.setState({ singleSnake: response.data });
+              statesData.getStateById(this.state.stateId)
+                .then((singleState) => {
+                  this.setState({ singleState: singleState.data });
+                });
             });
         })
         .catch((error) => console.error('err from edit mode', error));
@@ -145,6 +150,7 @@ class SightingForm extends React.Component {
       snakes,
       states,
       singleSnake,
+      singleState,
     } = this.state;
 
     const { snakeId, sightingId } = this.props.match.params;
@@ -161,6 +167,7 @@ class SightingForm extends React.Component {
                 id="date-found"
                 value={dateFound}
                 onChange={this.dateChange}
+                placeholder={this.dateFound}
                 >
               </input>
            </div>
@@ -174,8 +181,13 @@ class SightingForm extends React.Component {
                 id="state-name"
                 onChange={this.stateChange}
                 >
-                  <option value=''>Select...</option>
-                  {states.map((singleState) => (<option key={singleState.id} value={singleState.id}>{singleState.name}</option>))}
+                  {
+                    sightingId
+                      ? (<option value={singleState.id}>{singleState.name}</option>)
+                      : (<option value=''>Select...</option>)
+                  }
+                    <option value=''>Select...</option>
+                  {states.map((newState) => (<option key={newState.id} value={newState.id}>{newState.name}</option>))}
             </select>
           </div>
         </div>
