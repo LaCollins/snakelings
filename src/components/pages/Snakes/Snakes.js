@@ -46,7 +46,7 @@ class Snakes extends React.Component {
             </div>
           </form>
         </div>
-        <Link className="btn btn-dark" to="/identify">Identify</Link>
+        <Link className="btn btn-dark mb-3 mt-0" to="/identify">Identify</Link>
         <div className="snakeContainer container d-flex flex-wrap">
           {this.state.snakes.map((snake) => <Snake key={snake.id} snake={snake} />)}
         </div>
