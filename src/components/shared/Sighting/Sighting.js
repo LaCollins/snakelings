@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import sightingShape from '../../../helpers/propz/sightingShape';
 import snakelingsData from '../../../helpers/data/snakelingsData';
 import statesData from '../../../helpers/data/statesData';
@@ -51,6 +52,7 @@ class Sighting extends React.Component {
     const { sighting } = this.props;
     const { reportedSnake } = this.state;
     const { stateData } = this.state;
+    const { userId } = this.props;
 
     return (
       <div className="Sighting">
@@ -67,6 +69,14 @@ class Sighting extends React.Component {
                               <p className="card-text text-left">Date: {sighting.dateFound}</p>
                               <p className="card-text text-left">Description: {sighting.description}</p>
                           </div>
+                          {
+                            userId
+                              ? (<div className="card-footer col">
+                                <Link className="btn btn-dark" to={`/sightings/${sighting.id}/edit`}><i class="fas fa-edit"></i></Link>
+                                <button className="btn btn-dark mt-3"><i class="fas fa-trash-alt"></i></button>
+                              </div>)
+                              : ('')
+                          }
                       </div>
                   </div>
               </div>
