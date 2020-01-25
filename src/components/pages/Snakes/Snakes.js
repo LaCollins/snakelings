@@ -1,13 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Snake from '../../shared/Snake/Snake';
+import SnakeForm from '../SnakeForm/SnakeForm';
 
 import './Snakes.scss';
 import snakelingsData from '../../../helpers/data/snakelingsData';
+import stateSnakesData from '../../../helpers/data/stateSnakesData';
 
 class Snakes extends React.Component {
   state = {
     snakes: [],
+    showMap: false,
   }
 
   getSnakes = () => {
@@ -26,6 +28,36 @@ class Snakes extends React.Component {
   componentDidMount() {
     this.getSnakes();
   }
+
+  setShowMap = (e) => {
+    e.preventDefault();
+    this.getSnakes();
+    this.setState({ showMap: true });
+  }
+
+  closeMap = (e) => {
+    e.preventDefault();
+    this.setState({ showMap: false });
+  }
+
+  setMapState = (stateId) => {
+    const { snakes } = this.state;
+    const snakesByState = [];
+    stateSnakesData.getSnakesByState(stateId)
+      .then((response) => {
+        response.forEach((state) => {
+          for (let i = 0; i < snakes.length; i += 1) {
+            if (snakes[i].id === state.snakeId) {
+              snakesByState.push(snakes[i]);
+            }
+          }
+        });
+        this.setState({ snakes: snakesByState });
+        this.setState({ showMap: false });
+      })
+      .catch((error) => console.error('from set map state', error));
+  }
+
 
   render() {
     return (
@@ -46,7 +78,8 @@ class Snakes extends React.Component {
             </div>
           </form>
         </div>
-        <Link className="btn btn-dark mb-3 mt-0" to="/identify">Identify</Link>
+        <button className="btn btn-dark mb-3 mt-0" onClick={this.setShowMap}>Identify</button>
+        { this.state.showMap && <SnakeForm closeMap={this.closeMap} setMapState={this.setMapState} />}
         <div className="snakeContainer container d-flex flex-wrap">
           {this.state.snakes.map((snake) => <Snake key={snake.id} snake={snake} />)}
         </div>
