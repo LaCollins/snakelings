@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import './SightingForm.scss';
 import authData from '../../../helpers/data/authData';
 import snakelingsData from '../../../helpers/data/snakelingsData';
@@ -140,6 +140,25 @@ class SightingForm extends React.Component {
     this.setState({ description: e.target.value });
   }
 
+  sightingEditEvent = (e) => {
+    e.preventDefault();
+    const { sightingId } = this.props.match.params;
+    const userId = authData.getUid();
+    const updatedSighting = {
+      identified: this.state.identified,
+      snakeId: this.state.snakeId,
+      stateId: this.state.stateId,
+      county: this.state.county,
+      imageUrl: this.state.imageUrl,
+      uid: userId,
+      dateFound: this.state.dateFound,
+      description: this.state.description,
+    };
+    sightingsData.updateSighting(sightingId, updatedSighting)
+      .then(() => this.props.history.push(`/sightings/user/${userId}`))
+      .catch((error) => console.error('err from sighting edit', error));
+  }
+
   render() {
     const {
       dateFound,
@@ -154,6 +173,7 @@ class SightingForm extends React.Component {
     } = this.state;
 
     const { snakeId, sightingId } = this.props.match.params;
+    const userId = authData.getUid();
 
     return (
       <div className="SightingForm">
@@ -264,7 +284,15 @@ class SightingForm extends React.Component {
             </textarea>
           </div>
         </div>
-        <button className="btn btn-dark" onClick={this.saveSightingEvent}>Make Report</button>
+        {
+          sightingId
+            ? (<div className="row justify-content-around">
+              <Link className="btn btn-dark" to={`/sightings/user/${userId}`}>Cancel</Link>
+              <button className="btn btn-dark" onClick={this.sightingEditEvent}>Save Changes</button>
+              </div>)
+            : (<button className="btn btn-dark" onClick={this.saveSightingEvent}>Make Report</button>)
+        }
+
         </form>
       </div>
     );

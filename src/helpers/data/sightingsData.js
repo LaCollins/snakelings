@@ -43,9 +43,12 @@ const getSingleSighting = (sightingId) => axios.get(`${baseUrl}/sightings/${sigh
 
 const saveSighting = (sightingInfo) => axios.post(`${baseUrl}/sightings.json`, sightingInfo);
 
+const updateSighting = (sightingId, newSightingInfo) => axios.put(`${baseUrl}/sightings/${sightingId}.json`, newSightingInfo);
+
 export default {
   getAllSightings,
   getSightingsByUid,
   saveSighting,
   getSingleSighting,
+  updateSighting,
 };
