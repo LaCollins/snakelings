@@ -41,6 +41,12 @@ class Sightings extends React.Component {
     });
   }
 
+  forceLogin = (e) => {
+    e.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider);
+  }
+
   render() {
     const { authed } = this.state;
     return (
@@ -51,7 +57,11 @@ class Sightings extends React.Component {
             ? (<Link className="btn btn-dark m-2" to="/sightings/user/:userId">Manage My Sightings</Link>)
             : ('')
         }
-        <Link className="btn btn-dark m-2" to="/sightings/new">Report Sighting</Link>
+        {
+          authed
+            ? (<Link className="btn btn-dark m-2" to="/sightings/new">Report Sighting</Link>)
+            : (<Link className="btn btn-dark m-2" to="/sightings/new" onClick={this.forceLogin}>Report Sighting</Link>)
+        }
         <div className="wrap d-flex row justify-content-center">
           {this.state.sightings.map((sighting) => <Sighting key={sighting.id} sighting={sighting} />)}
         </div>
