@@ -4,13 +4,17 @@
   .card-horizontal {
     display: flex;
     flex: 1 1 auto;
+    background-color: lightgray;
   }
 
   .reportedImage {
     height: 200px;
+    width: 250px;
+    object-fit: cover;
   }
 
   .reportCard {
     width: 400px;
+    background-color: lightgray;
   }
 }
