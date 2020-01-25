@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import sightingShape from '../../../helpers/propz/sightingShape';
 import snakelingsData from '../../../helpers/data/snakelingsData';
 import statesData from '../../../helpers/data/statesData';
 
 import './Sighting.scss';
+
 
 class Sighting extends React.Component {
   state = {
@@ -14,6 +16,7 @@ class Sighting extends React.Component {
 
   static propTypes = {
     sighting: sightingShape.sightingShape,
+    deleteSighting: PropTypes.func,
   }
 
   getSnakeData = () => {
@@ -48,6 +51,11 @@ class Sighting extends React.Component {
     this.getStateData();
   }
 
+  deleteSightingEvent = (e) => {
+    const { sighting } = this.props;
+    this.props.deleteSighting(sighting.id);
+  }
+
   render() {
     const { sighting } = this.props;
     const { reportedSnake } = this.state;
@@ -73,7 +81,7 @@ class Sighting extends React.Component {
                             userId
                               ? (<div className="card-footer col">
                                 <Link className="btn btn-dark" to={`/sightings/${sighting.id}/edit`}><i className="fas fa-edit"></i></Link>
-                                <button className="btn btn-dark mt-3"><i className="fas fa-trash-alt"></i></button>
+                                <button className="btn btn-dark mt-3" onClick={this.deleteSightingEvent}><i className="fas fa-trash-alt"></i></button>
                               </div>)
                               : ('')
                           }

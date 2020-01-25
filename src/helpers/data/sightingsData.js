@@ -45,10 +45,13 @@ const saveSighting = (sightingInfo) => axios.post(`${baseUrl}/sightings.json`, s
 
 const updateSighting = (sightingId, newSightingInfo) => axios.put(`${baseUrl}/sightings/${sightingId}.json`, newSightingInfo);
 
+const deleteSighting = (sightingId) => axios.delete(`${baseUrl}/sightings/${sightingId}.json`);
+
 export default {
   getAllSightings,
   getSightingsByUid,
   saveSighting,
   getSingleSighting,
   updateSighting,
+  deleteSighting,
 };
