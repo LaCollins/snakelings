@@ -54,9 +54,9 @@ class Sighting extends React.Component {
 
     return (
       <div className="Sighting">
-          <div className="row m-2 h-100">
+          <div className="row m-2 h-100 wrap">
               <div className="col mt-3">
-                  <div className="card">
+                  <div className="card reportedSnakeCard">
                       <div className="card-horizontal">
                           <div className="img-square-wrapper">
                               <img className="reportedImage" src={sighting.imageUrl} alt={sighting.date} />
