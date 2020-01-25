@@ -17,6 +17,7 @@ class SightingForm extends React.Component {
     description: '',
     snakes: [],
     states: [],
+    singleSnake: {},
   }
 
   saveSightingEvent = (e) => {
@@ -63,8 +64,19 @@ class SightingForm extends React.Component {
   }
 
   componentDidMount() {
-    this.getSnakes();
+    const { snakeId } = this.props.match.params;
     this.getStates();
+    if (snakeId) {
+      snakelingsData.getSingleSnake(snakeId)
+        .then((response) => {
+          this.setState({ singleSnake: response.data });
+          this.setState({ identified: true });
+          this.setState({ snakeId });
+        })
+        .catch((error) => console.error('err from snakeForm', error));
+    } else {
+      this.getSnakes();
+    }
   }
 
   dateChange = (e) => {
@@ -111,7 +123,10 @@ class SightingForm extends React.Component {
       description,
       snakes,
       states,
+      singleSnake,
     } = this.state;
+
+    const { snakeId } = this.props.match.params;
 
     return (
       <div className="SightingForm">
@@ -178,7 +193,11 @@ class SightingForm extends React.Component {
               onChange={this.snakeChange}
               disabled={identified ? null : 'disabled'}
               >
-                <option value=''>Select...</option>
+                {
+                  snakeId
+                    ? (<option value={snakeId}>{singleSnake.commonName}</option>)
+                    : (<option value=''>Select...</option>)
+                }
                 {snakes.map((snake) => (<option key={snake.id} value={snake.id}>{snake.commonName}</option>))}
             </select>
           </div>
