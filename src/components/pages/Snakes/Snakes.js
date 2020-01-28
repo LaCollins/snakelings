@@ -89,6 +89,19 @@ class Snakes extends React.Component {
     }
   }
 
+  filterBodyShape = (selectedBodyOption) => {
+    const { snakes } = this.state;
+    const filteredSnakes = [];
+    if (selectedBodyOption !== 'null') {
+      for (let i = 0; i < snakes.length; i += 1) {
+        if (snakes[i].bodyShape === selectedBodyOption) {
+          filteredSnakes.push(snakes[i]);
+        }
+      }
+      this.setState({ snakes: filteredSnakes });
+    }
+  }
+
 
   render() {
     return (
@@ -113,7 +126,7 @@ class Snakes extends React.Component {
         <button className="btn btn-dark mb-3 mt-0" onClick={this.setShowMap}>Filter By State</button>
         { this.state.showMap && <StateMap closeMap={this.closeMap} setMapState={this.setMapState} />}
         <button className="btn btn-dark mb-3 ml-3 mt-0" onClick={this.setShowForm}>Filter By Appearance</button>
-        { this.state.showForm && <SnakeForm setCloseForm={this.setCloseForm} filterHeadShape={this.filterHeadShape}/>}
+        { this.state.showForm && <SnakeForm setCloseForm={this.setCloseForm} filterHeadShape={this.filterHeadShape} filterBodyShape={this.filterBodyShape}/>}
         <div className="snakeContainer container d-flex flex-wrap">
           {this.state.snakes.map((snake) => <Snake key={snake.id} snake={snake} />)}
         </div>
