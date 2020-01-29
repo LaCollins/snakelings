@@ -112,7 +112,6 @@ class SnakeForm extends React.Component {
     const snakeColors = [];
     const snakeMarkShapes = [];
     const snakeMarkColors = [];
-    const secondaryColors = [];
     const { markings } = this.state;
 
     snakes.forEach((snake) => {

@@ -115,9 +115,11 @@ class Snakes extends React.Component {
     }
   }
 
-  filterBodyColor = (bodyColor) => {
+  filterBodyColor = (bodyColor, markShape, markColor) => {
     const { snakes } = this.state;
-    const filteredSnakes = [];
+    let filteredSnakes = [];
+    const markShapeFilter = [];
+    const markColorFilter = [];
     if (bodyColor !== 'null') {
       if (bodyColor.includes(',')) {
         const colors = bodyColor.split(', ');
@@ -128,18 +130,51 @@ class Snakes extends React.Component {
             }
           }
         }
-        const reducedSnakes = [...new Set(filteredSnakes)];
-        this.setState({ snakes: reducedSnakes });
       } else {
-        for (let i = 0; i < snakes.length; i += 1) {
-          if (snakes[i].baseColor.includes(bodyColor)) {
-            filteredSnakes.push(snakes[i]);
+        for (let k = 0; k < snakes.length; k += 1) {
+          if (snakes[k].baseColor.includes(bodyColor)) {
+            filteredSnakes.push(snakes[k]);
           }
         }
-        const reducedSnakes = [...new Set(filteredSnakes)];
-        this.setState({ snakes: reducedSnakes });
       }
     }
+    if (markShape !== 'null' && bodyColor === 'null') {
+      for (let l = 0; l < snakes.length; l += 1) {
+        if (snakes[l].markShape === markShape) {
+          filteredSnakes.push(snakes[l]);
+        }
+      }
+    } else if (markShape !== 'null' && bodyColor !== 'null') {
+      for (let m = 0; m < filteredSnakes.length; m += 1) {
+        if (filteredSnakes[m].markShape === markShape) {
+          markShapeFilter.push(filteredSnakes[m]);
+          filteredSnakes = markShapeFilter;
+        }
+      }
+    }
+    if (markColor !== 'null' && bodyColor === 'null' && markShape === 'null') {
+      for (let l = 0; l < snakes.length; l += 1) {
+        if (snakes[l].markColor === markColor) {
+          filteredSnakes.push(snakes[l]);
+        }
+      }
+    } else if (markColor !== 'null' && bodyColor !== 'null') {
+      for (let m = 0; m < filteredSnakes.length; m += 1) {
+        if (filteredSnakes[m].markColor === markColor) {
+          markColorFilter.push(filteredSnakes[m]);
+          filteredSnakes = markColorFilter;
+        }
+      }
+    } else if (markColor !== 'null' && markShape !== 'null') {
+      for (let m = 0; m < filteredSnakes.length; m += 1) {
+        if (filteredSnakes[m].markColor === markColor) {
+          markColorFilter.push(filteredSnakes[m]);
+          filteredSnakes = markColorFilter;
+        }
+      }
+    }
+    const reducedSnakes = [...new Set(filteredSnakes)];
+    this.setState({ snakes: reducedSnakes });
   }
 
 
