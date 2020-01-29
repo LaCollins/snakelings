@@ -137,6 +137,8 @@ class Snakes extends React.Component {
           }
         }
       }
+      const reducedSnakes = [...new Set(filteredSnakes)];
+      this.setState({ snakes: reducedSnakes });
     }
     if (markShape !== 'null' && bodyColor === 'null') {
       for (let l = 0; l < snakes.length; l += 1) {
@@ -151,6 +153,8 @@ class Snakes extends React.Component {
           filteredSnakes = markShapeFilter;
         }
       }
+      const reducedSnakes = [...new Set(filteredSnakes)];
+      this.setState({ snakes: reducedSnakes });
     }
     if (markColor !== 'null' && bodyColor === 'null' && markShape === 'null') {
       for (let l = 0; l < snakes.length; l += 1) {
@@ -172,9 +176,9 @@ class Snakes extends React.Component {
           filteredSnakes = markColorFilter;
         }
       }
+      const reducedSnakes = [...new Set(filteredSnakes)];
+      this.setState({ snakes: reducedSnakes });
     }
-    const reducedSnakes = [...new Set(filteredSnakes)];
-    this.setState({ snakes: reducedSnakes });
   }
 
 
@@ -182,7 +186,7 @@ class Snakes extends React.Component {
     return (
       <div className="Snakes">
         <h1>Snakes of North America</h1>
-        <div className="container">
+        {/* <div className="container">
           <form className="row justify-content-center">
             <div className="form-group">
               <div className="form-inline">
@@ -196,7 +200,7 @@ class Snakes extends React.Component {
               </div>
             </div>
           </form>
-        </div>
+        </div> */}
         <button className="btn btn-dark mb-3 mr-3 mt-0" onClick={this.getSnakes}>View All</button>
         <button className="btn btn-dark mb-3 mt-0" onClick={this.setShowMap}>Filter By State</button>
         { this.state.showMap && <StateMap closeMap={this.closeMap} setMapState={this.setMapState} />}
