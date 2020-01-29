@@ -12,7 +12,6 @@ import firebaseConnection from '../helpers/data/connection';
 import Home from '../components/pages/Home/Home';
 import SightingForm from '../components/pages/SightingForm/SightingForm';
 import SingleSnake from '../components/pages/SingleSnake/SingleSnake';
-import SnakeForm from '../components/pages/SnakeForm/SnakeForm';
 import UserSightings from '../components/pages/UserSightings/UserSightings';
 import Sightings from '../components/pages/Sightings/Sightings';
 import Snakes from '../components/pages/Snakes/Snakes';
@@ -59,7 +58,6 @@ class App extends React.Component {
               <Route path="/" exact component={Home} authed={authed}/>
               <Route path="/snakes" exact component={Snakes} authed={authed}/>
               <Route path="/snakes/:snakeId" exact component={SingleSnake} authed={authed} />
-              <Route path="/identify" exact component={SnakeForm} authed={authed}/>
               <Route path="/sightings" exact component={Sightings} authed={authed} />
               <PrivateRoute path="/sightings/user/:userId" exact component={UserSightings} authed={authed} />
               <PrivateRoute path="/sightings/new" exact component={SightingForm} authed={authed} />
