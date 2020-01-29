@@ -102,6 +102,46 @@ class Snakes extends React.Component {
     }
   }
 
+  filterTailShape = (selectedTailOption) => {
+    const { snakes } = this.state;
+    const filteredSnakes = [];
+    if (selectedTailOption !== 'null') {
+      for (let i = 0; i < snakes.length; i += 1) {
+        if (snakes[i].tailShape === selectedTailOption) {
+          filteredSnakes.push(snakes[i]);
+        }
+      }
+      this.setState({ snakes: filteredSnakes });
+    }
+  }
+
+  filterBodyColor = (bodyColor) => {
+    const { snakes } = this.state;
+    const filteredSnakes = [];
+    if (bodyColor !== 'null') {
+      if (bodyColor.includes(',')) {
+        const colors = bodyColor.split(', ');
+        for (let j = 0; j < colors.length; j += 1) {
+          for (let i = 0; i < snakes.length; i += 1) {
+            if (snakes[i].baseColor.includes(colors[j])) {
+              filteredSnakes.push(snakes[i]);
+            }
+          }
+        }
+        const reducedSnakes = [...new Set(filteredSnakes)];
+        this.setState({ snakes: reducedSnakes });
+      } else {
+        for (let i = 0; i < snakes.length; i += 1) {
+          if (snakes[i].baseColor.includes(bodyColor)) {
+            filteredSnakes.push(snakes[i]);
+          }
+        }
+        const reducedSnakes = [...new Set(filteredSnakes)];
+        this.setState({ snakes: reducedSnakes });
+      }
+    }
+  }
+
 
   render() {
     return (
@@ -126,7 +166,14 @@ class Snakes extends React.Component {
         <button className="btn btn-dark mb-3 mt-0" onClick={this.setShowMap}>Filter By State</button>
         { this.state.showMap && <StateMap closeMap={this.closeMap} setMapState={this.setMapState} />}
         <button className="btn btn-dark mb-3 ml-3 mt-0" onClick={this.setShowForm}>Filter By Appearance</button>
-        { this.state.showForm && <SnakeForm setCloseForm={this.setCloseForm} filterHeadShape={this.filterHeadShape} filterBodyShape={this.filterBodyShape}/>}
+        { this.state.showForm && <SnakeForm
+        setCloseForm={this.setCloseForm}
+        filterHeadShape={this.filterHeadShape}
+        filterBodyShape={this.filterBodyShape}
+        filterTailShape={this.filterTailShape}
+        snakes={this.state.snakes}
+        filterBodyColor={this.filterBodyColor}
+        />}
         <div className="snakeContainer container d-flex flex-wrap">
           {this.state.snakes.map((snake) => <Snake key={snake.id} snake={snake} />)}
         </div>
