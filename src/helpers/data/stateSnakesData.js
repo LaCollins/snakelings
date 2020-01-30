@@ -1,6 +1,5 @@
 import axios from 'axios';
 import apiKeys from '../apiKeys.json';
-import snakelingsData from './snakelingsData';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 

@@ -14,8 +14,16 @@
     padding: 10px;
   }
 
+  .logOutButton {
+    margin-left: 8px;
+  }
+
   .fixed-top {
     box-shadow: 0 10px 10px black;
     background-image: linear-gradient($slate, black);
+  }
+
+  .userProfileIcon {
+    font-size: 25px;
   }
 }

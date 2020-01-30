@@ -15,11 +15,8 @@ import SingleSnake from '../components/pages/SingleSnake/SingleSnake';
 import UserSightings from '../components/pages/UserSightings/UserSightings';
 import Sightings from '../components/pages/Sightings/Sightings';
 import Snakes from '../components/pages/Snakes/Snakes';
+import UserProfile from '../components/pages/UserProfile/UserProfile';
 
-// const PublicRoute = ({ component: Component, authed, ...rest }) => {
-//   const routeChecker = (props) => (authed === false ? <Component {...props} {...rest}/> : <Redirect to={{ pathname: '/', state: { from: props.location } }} />);
-//   return <Route {...rest} render={(props) => routeChecker(props)} />;
-// };
 
 const PrivateRoute = ({ component: Component, authed, ...rest }) => {
   const routeChecker = (props) => (authed === true ? <Component {...props} {...rest}/> : <Redirect to={{ pathname: '/', state: { from: props.location } }} />);
@@ -60,6 +57,7 @@ class App extends React.Component {
               <Route path="/snakes/:snakeId" exact component={SingleSnake} authed={authed} />
               <Route path="/sightings" exact component={Sightings} authed={authed} />
               <PrivateRoute path="/sightings/user/:userId" exact component={UserSightings} authed={authed} />
+              <PrivateRoute path="/user/profile" exact component={UserProfile} authed={authed} />
               <PrivateRoute path="/sightings/new" exact component={SightingForm} authed={authed} />
               <PrivateRoute path="/sightings/new/:snakeId" exact component={SightingForm} authed={authed} />
               <PrivateRoute path="/sightings/:sightingId/edit" exact component={SightingForm} authed={authed}/>
