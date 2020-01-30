@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { Link } from 'react-router-dom';
+import authData from '../../../helpers/data/authData';
 
 import Auth from '../../pages/Auth/Auth';
 import snakeLogo from './images/SnakelingsLogo3.png';
@@ -34,7 +35,12 @@ class NavBar extends React.Component {
           <Link to="/snakes" className="nav-link">Snakes</Link>
             <Link to="/sightings" className="nav-link">Sightings</Link>
             { authed
-              ? (<Button variant="dark" onClick={this.logMeOut}>Log Out</Button>)
+              ? (<Link to="/user/profile" className="nav-link">
+              <i className="fas fa-user-circle userProfileIcon"></i>
+              </Link>)
+              : ('') }
+            { authed
+              ? (<Button variant="dark" onClick={this.logMeOut} className="logOutButton">Log Out</Button>)
               : (<Auth />) }
           </Nav>
         </Navbar.Collapse>
