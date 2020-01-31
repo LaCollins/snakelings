@@ -3,7 +3,6 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import Button from 'react-bootstrap/Button';
 import googleLogo from './images/GoogleLogo.png';
-import './Auth.scss';
 
 
 class Auth extends React.Component {

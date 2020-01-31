@@ -57,7 +57,7 @@ class App extends React.Component {
               <Route path="/snakes/:snakeId" exact component={SingleSnake} authed={authed} />
               <Route path="/sightings" exact component={Sightings} authed={authed} />
               <PrivateRoute path="/sightings/user/:userId" exact component={UserSightings} authed={authed} />
-              <PrivateRoute path="/user/profile" exact component={UserProfile} authed={authed} />
+              <PrivateRoute path="/user/:userId" exact component={UserProfile} authed={authed} />
               <PrivateRoute path="/sightings/new" exact component={SightingForm} authed={authed} />
               <PrivateRoute path="/sightings/new/:snakeId" exact component={SightingForm} authed={authed} />
               <PrivateRoute path="/sightings/:sightingId/edit" exact component={SightingForm} authed={authed}/>

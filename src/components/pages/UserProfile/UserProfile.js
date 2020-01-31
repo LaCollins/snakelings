@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import userProfilesData from '../../../helpers/data/userProfilesData';
 import authData from '../../../helpers/data/authData';
 import sightingsData from '../../../helpers/data/sightingsData';
+import ProfileForm from '../ProfileForm/ProfileForm';
 
 import './UserProfile.scss';
 
@@ -10,6 +11,14 @@ class UserProfile extends React.Component {
   state = {
     userProfile: {},
     sightings: [],
+    show: false,
+  }
+
+  handleClose = () => this.setState({ show: false });
+
+  openForm = (e) => {
+    e.preventDefault();
+    this.handleShow();
   }
 
   getProfileData = () => {
@@ -59,7 +68,8 @@ class UserProfile extends React.Component {
                 <img src={userProfile.imageUrl} className="card-img" alt={userProfile.firstName} />
               </div>
             </div>
-            <div className="card-footer profileEdit"><button className="btn btn-dark" id="editProfile">Edit Profile</button>
+            <div className="card-footer profileEdit"><button className="btn btn-dark" id="editProfile" onClick={this.openForm}>Edit Profile</button>
+            {this.state.show && <ProfileForm show={this.state.show} handleClose={this.handleClose} edit={true}/>}
             </div>
           </div>
           </div>
