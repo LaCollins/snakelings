@@ -14,12 +14,35 @@ class ProfileForm extends React.Component {
     imageUrl: '',
     userName: '',
     userNameExists: false,
+    profileId: '',
   }
 
   static propTypes = {
     show: PropTypes.bool,
     handleClose: PropTypes.func,
     edit: PropTypes.bool,
+    pageRefresh: PropTypes.func,
+  }
+
+  componentDidMount() {
+    this.setEditMode();
+  }
+
+  setEditMode = () => {
+    const { edit } = this.props;
+    if (edit) {
+      userProfilesData.getProfileByUid(authData.getUid())
+        .then((response) => {
+          const profile = response[0];
+          this.setState({ firstName: profile.firstName });
+          this.setState({ lastName: profile.lastName });
+          this.setState({ location: profile.location });
+          this.setState({ imageUrl: profile.imageUrl });
+          this.setState({ userName: profile.userName });
+          this.setState({ profileId: profile.id });
+        })
+        .catch((error) => console.error('err from set edit mode', error));
+    }
   }
 
   checkExistingUsername = (e) => {
@@ -47,6 +70,24 @@ class ProfileForm extends React.Component {
     };
     userProfilesData.saveProfile(newProfile)
       .then(() => this.props.handleClose())
+      .catch((error) => console.error('err from save profile', error));
+  }
+
+  saveUpdatedProfileEvent = () => {
+    const userId = this.state.profileId;
+    const newProfileInfo = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      location: this.state.location,
+      imageUrl: this.state.imageUrl,
+      userName: this.state.userName,
+      uid: authData.getUid(),
+    };
+    userProfilesData.updateProfile(userId, newProfileInfo)
+      .then(() => {
+        this.props.handleClose();
+        this.props.pageRefresh();
+      })
       .catch((error) => console.error('err from save profile', error));
   }
 
@@ -177,14 +218,18 @@ class ProfileForm extends React.Component {
           <Modal.Footer>
             {
               edit
-                ? (<Button variant="dark" onClick={handleClose}>
-              Close
-            </Button>)
-                : ('')
+                ? (<div className="editButtons">
+                  <Button variant="dark" onClick={handleClose}>
+                    Close
+                  </Button>
+                  <Button variant="dark" className="ml-3" onClick={this.saveUpdatedProfileEvent}>
+                  Save Changes
+                </Button>
+                </div>)
+                : (<Button variant="dark" type="submit">
+                Save
+              </Button>)
             }
-            <Button variant="dark" type="submit">
-              Save
-            </Button>
           </Modal.Footer>
           </form>
         </Modal>
