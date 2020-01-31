@@ -43,4 +43,8 @@ const getProfileByUserName = (userName) => new Promise((resolve, reject) => {
 
 const saveProfile = (profileInfo) => axios.post(`${baseUrl}/userProfiles.json`, profileInfo);
 
-export default { getProfileByUid, getProfileByUserName, saveProfile };
+const updateProfile = (profileId, newProfileInfo) => axios.put(`${baseUrl}/userProfiles/${profileId}.json`, newProfileInfo);
+
+export default {
+  getProfileByUid, getProfileByUserName, saveProfile, updateProfile,
+};

@@ -18,7 +18,11 @@ class UserProfile extends React.Component {
 
   openForm = (e) => {
     e.preventDefault();
-    this.handleShow();
+    this.setState({ show: true });
+  }
+
+  pageRefresh = () => {
+    this.getProfileData();
   }
 
   getProfileData = () => {
@@ -69,7 +73,7 @@ class UserProfile extends React.Component {
               </div>
             </div>
             <div className="card-footer profileEdit"><button className="btn btn-dark" id="editProfile" onClick={this.openForm}>Edit Profile</button>
-            {this.state.show && <ProfileForm show={this.state.show} handleClose={this.handleClose} edit={true}/>}
+            {this.state.show && <ProfileForm show={this.state.show} handleClose={this.handleClose} edit={true} pageRefresh={this.pageRefresh} />}
             </div>
           </div>
           </div>
