@@ -180,7 +180,7 @@ class SightingForm extends React.Component {
         <form className="formContainer">
           <div className="form-inline d-flex justify-content-center">
             <div className="form-group row justify-content-center">
-              <label htmlFor="date-found col-form-label">Date Found</label>
+              <label htmlFor="date-found" className="col-form-label">Date Found</label>
               <input
                 type="date"
                 className="form-control m-2"
