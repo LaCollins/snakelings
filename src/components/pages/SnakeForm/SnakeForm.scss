@@ -1,38 +1,12 @@
 .SnakeForm {
   display: block;
+}
 
 
-  .popup {
-    position: fixed;
-    z-index: 3000;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .inner {
-    position: absolute;
-    left: 25%;
-    right: 25%;
-    top: 25%;
-    bottom: 25%;
-    width: 50vw;
-    height: 600px;
-    margin: auto;
-    border-radius: 20px;
-    background-color: rgb(243, 243, 243);
-  }
+.formClose {
+  color: red;
+}
 
-  .formClose {
-    color: red;
-  }
-
-  .bodyOptionImg, .tailOptionImg {
-    width: 200px;
-  }
+.bodyOptionImg, .tailOptionImg {
+  width: 200px;
 }

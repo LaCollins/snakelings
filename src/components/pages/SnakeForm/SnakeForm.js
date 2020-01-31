@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes, { arrayOf } from 'prop-types';
+import Modal from 'react-bootstrap/Modal';
 import arrowHead from './images/arrowHead.gif';
 import roundHead from './images/roundHead.gif';
 import slender from './images/slender.PNG';
@@ -20,6 +21,7 @@ class SnakeForm extends React.Component {
     filterTailShape: PropTypes.func,
     filterBodyColor: PropTypes.func,
     snakes: arrayOf(snakeShape.snakeShape),
+    showForm: PropTypes.bool,
   }
 
   state = {
@@ -343,19 +345,16 @@ class SnakeForm extends React.Component {
   render() {
     return (
       <div className="SnakeForm">
-        <div className='popup'>
-          <div className='inner'>
-          <div className="d-flex justify-content-between">
-            <h3 className="m-3">Select Snake Features</h3>
-              <button className="btn btn-danger close m-3 formClose" onClick={this.props.setCloseForm}>X</button>
-            </div>
+        <Modal show={this.props.showForm} onHide={this.props.setCloseForm} size="lg">
+          <Modal.Header closeButton><h3 className="m-3">Select Snake Features</h3></Modal.Header>
+           <Modal.Body>
             {this.state.headShape && this.showHeadShape()}
             {this.state.bodyShape && this.showBodyShape()}
             {this.state.tailShape && this.showTailShape()}
             {this.state.baseColor && this.showBaseBodyColor()}
-          </div>
-        </div>
-      </div>
+          </Modal.Body>
+      </Modal>
+    </div>
     );
   }
 }

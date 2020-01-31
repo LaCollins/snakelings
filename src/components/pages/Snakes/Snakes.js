@@ -205,6 +205,7 @@ class Snakes extends React.Component {
         { this.state.showMap && <StateMap closeMap={this.closeMap} setMapState={this.setMapState} showMap={this.state.showMap} />}
         <button className="btn btn-dark mb-3 ml-3 mt-0" onClick={this.setShowForm}>Filter By Appearance</button>
         { this.state.showForm && <SnakeForm
+        showForm={this.state.showForm}
         setCloseForm={this.setCloseForm}
         filterHeadShape={this.filterHeadShape}
         filterBodyShape={this.filterBodyShape}
