@@ -1,5 +1,6 @@
 {
   "name": "snakelings",
+  "main": "server.js",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,10 +8,19 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
+    "@uppy/aws-s3": "^1.4.1",
+    "@uppy/core": "^1.7.1",
+    "@uppy/file-input": "^1.4.2",
+    "aws": "0.0.3-2",
+    "aws-sdk": "^2.610.0",
     "axios": "^0.19.1",
     "bootstrap": "^4.4.1",
+    "express": "^4.17.1",
     "firebase": "^7.7.0",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
     "node-sass": "^4.13.1",
+    "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "query-string": "^6.10.1",
     "react": "^16.12.0",
@@ -19,12 +29,16 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-usa-map": "^1.4.0",
-    "select2": "^4.0.12"
+    "select2": "^4.0.12",
+    "url": "^0.11.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "server": "nodemon server.js",
+    "prebuild": "aws s3 cp s3://${S3BUCKET}/aws-exports.js ./src/aws-exports.js",
+    "start": "react-scripts start server.js",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "deploy": "aws s3 cp ./build s3://${S3BUCKET}/ --recursive",
+    "test": "react-scripts test –env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

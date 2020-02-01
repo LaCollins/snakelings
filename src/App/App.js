@@ -16,6 +16,7 @@ import UserSightings from '../components/pages/UserSightings/UserSightings';
 import Sightings from '../components/pages/Sightings/Sightings';
 import Snakes from '../components/pages/Snakes/Snakes';
 import UserProfile from '../components/pages/UserProfile/UserProfile';
+import UploadForm from '../components/pages/UploadForm/UploadForm';
 
 
 const PrivateRoute = ({ component: Component, authed, ...rest }) => {
@@ -51,6 +52,7 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <NavBar authed={authed}/>
+          <UploadForm />
             <Switch>
               <Route path="/" exact component={Home} authed={authed}/>
               <Route path="/snakes" exact component={Snakes} authed={authed}/>
