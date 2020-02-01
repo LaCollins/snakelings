@@ -21,8 +21,7 @@ class SightingForm extends React.Component {
     singleState: {},
   }
 
-  saveSightingEvent = (e) => {
-    e.preventDefault();
+  saveSightingEvent = () => {
     const newSighting = {
       identified: this.state.identified,
       snakeId: this.state.snakeId,
@@ -140,8 +139,7 @@ class SightingForm extends React.Component {
     this.setState({ description: e.target.value });
   }
 
-  sightingEditEvent = (e) => {
-    e.preventDefault();
+  sightingEditEvent = () => {
     const { sightingId } = this.props.match.params;
     const userId = authData.getUid();
     const updatedSighting = {
@@ -157,6 +155,16 @@ class SightingForm extends React.Component {
     sightingsData.updateSighting(sightingId, updatedSighting)
       .then(() => this.props.history.push(`/sightings/user/${userId}`))
       .catch((error) => console.error('err from sighting edit', error));
+  }
+
+  checkEditOrCreate = (e) => {
+    e.preventDefault();
+    const { sightingId } = this.props.match.params;
+    if (sightingId) {
+      this.sightingEditEvent();
+    } else {
+      this.saveSightingEvent();
+    }
   }
 
   render() {
@@ -177,8 +185,8 @@ class SightingForm extends React.Component {
 
     return (
       <div className="SightingForm">
-        <form className="formContainer">
-          <div className="form-inline d-flex justify-content-center">
+        <form className="formContainer" onSubmit={this.checkEditOrCreate}>
+           <div className="form-inline d-flex justify-content-center">
             <div className="form-group row justify-content-center">
               <label htmlFor="date-found" className="col-form-label">Date Found</label>
               <input
@@ -188,6 +196,7 @@ class SightingForm extends React.Component {
                 value={dateFound}
                 onChange={this.dateChange}
                 placeholder={this.dateFound}
+                required
                 >
               </input>
            </div>
@@ -200,6 +209,7 @@ class SightingForm extends React.Component {
                 className="custom-select m-2"
                 id="state-name"
                 onChange={this.stateChange}
+                required
                 >
                   {
                     sightingId
@@ -221,6 +231,7 @@ class SightingForm extends React.Component {
             placeholder="Enter County"
             value={county}
             onChange={this.countyChange}
+            required
             >
             </input>
           </div>
@@ -265,6 +276,7 @@ class SightingForm extends React.Component {
             placeholder="Enter Image Url"
             value={imageUrl}
             onChange={this.urlChange}
+            required
             >
             </input>
           </div>
@@ -280,6 +292,7 @@ class SightingForm extends React.Component {
             value={description}
             onChange={this.descriptionChange}
             rows="3"
+            required
             >
             </textarea>
           </div>
@@ -288,9 +301,9 @@ class SightingForm extends React.Component {
           sightingId
             ? (<div className="row justify-content-around">
               <Link className="btn btn-dark" to={`/sightings/user/${userId}`}>Cancel</Link>
-              <button className="btn btn-dark" onClick={this.sightingEditEvent}>Save Changes</button>
+              <button type="submit" className="btn btn-dark">Save Changes</button>
               </div>)
-            : (<button className="btn btn-dark" onClick={this.saveSightingEvent}>Make Report</button>)
+            : (<button className="btn btn-dark" type="submit">Make Report</button>)
         }
 
         </form>
