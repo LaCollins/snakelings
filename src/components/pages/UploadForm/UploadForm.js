@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import awsData from '../../../helpers/data/awsData';
 
 import './UploadForm.scss';
 
@@ -19,38 +19,40 @@ class UploadForm extends React.Component {
   }
 
   singleFileUploadHandler = (e) => {
-    const data = new FormData();
-    if (this.state.selectedFile) {
-      data.append('snakeImage', this.state.selectedFile, this.state.selectedFile.name);
-      axios.post('/img-upload', data, {
-        headers: {
-          accept: 'application/json',
-          'Accept-Language': 'en-US,en;q=0.8',
-          'Content-Type': `multipart/form-data; boundary=${data.boundary}`,
-        },
-      })
-        .then((response) => {
-          if (response.status === 200) {
-            if (response.data.error) {
-              if (response.data.error.code === 'LIMIT_FILE_SIZE') {
-                console.error(response.data);
-              } else {
-                console.error(response.data);
-              }
-            } else {
-              // Success
-              const fileName = response.data;
-              console.error('filedata', fileName);
-            }
-          }
-        }).catch((error) => {
-          // If another error
-          console.error(error);
-        });
-    } else {
-      // if file not selected throw error
-      this.ocShowAlert('Please upload file', 'red');
-    }
+    e.preventDefault();
+    awsData.uploadImage(this.state.selectedFile);
+    // const data = new FormData();
+    // if (this.state.selectedFile) {
+    //   data.append('snakeImage', this.state.selectedFile, this.state.selectedFile.name);
+    //   axios.post('/img-upload', data, {
+    //     headers: {
+    //       accept: 'application/json',
+    //       'Accept-Language': 'en-US,en;q=0.8',
+    //       'Content-Type': `multipart/form-data; boundary=${data.boundary}`,
+    //     },
+    //   })
+    //     .then((response) => {
+    //       if (response.status === 200) {
+    //         if (response.data.error) {
+    //           if (response.data.error.code === 'LIMIT_FILE_SIZE') {
+    //             console.error(response.data);
+    //           } else {
+    //             console.error(response.data);
+    //           }
+    //         } else {
+    //           // Success
+    //           const fileName = response.data;
+    //           console.error('filedata', fileName);
+    //         }
+    //       }
+    //     }).catch((error) => {
+    //       // If another error
+    //       console.error(error);
+    //     });
+    // } else {
+    //   // if file not selected throw error
+    //   this.ocShowAlert('Please upload file', 'red');
+    // }
   };
 
 
