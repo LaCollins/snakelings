@@ -1,10 +1,16 @@
 import React from 'react';
 import './ProfileForm.scss';
+import S3 from 'react-aws-s3';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import PropTypes from 'prop-types';
 import userProfilesData from '../../../helpers/data/userProfilesData';
 import authData from '../../../helpers/data/authData';
+import apiKeys from '../../../helpers/apiKeys.json';
+
+const config = apiKeys.awsKeys;
+
+const ReactS3Client = new S3(config);
 
 class ProfileForm extends React.Component {
   state = {
@@ -15,6 +21,7 @@ class ProfileForm extends React.Component {
     userName: '',
     userNameExists: false,
     profileId: '',
+    selectedFile: null,
   }
 
   static propTypes = {
@@ -23,6 +30,21 @@ class ProfileForm extends React.Component {
     edit: PropTypes.bool,
     pageRefresh: PropTypes.func,
   }
+
+  singleFileChangedHandler = (e) => {
+    e.preventDefault();
+    this.setState({ selectedFile: e.target.files[0] });
+  }
+
+  uploadImage = () => {
+    ReactS3Client
+      .uploadFile(this.state.selectedFile)
+      .then((data) => {
+        this.setState({ imageUrl: data.location });
+        this.saveUserProfileEvent();
+      })
+      .catch((err) => console.error(err));
+  };
 
   componentDidMount() {
     this.setEditMode();
@@ -53,7 +75,7 @@ class ProfileForm extends React.Component {
         if (response.length > 0) {
           this.setState({ userNameExists: true });
         } else {
-          this.saveUserProfileEvent();
+          this.uploadImage();
         }
       })
       .catch((error) => console.error('err from check username', error));
@@ -75,20 +97,42 @@ class ProfileForm extends React.Component {
 
   saveUpdatedProfileEvent = () => {
     const userId = this.state.profileId;
-    const newProfileInfo = {
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      location: this.state.location,
-      imageUrl: this.state.imageUrl,
-      userName: this.state.userName,
-      uid: authData.getUid(),
-    };
-    userProfilesData.updateProfile(userId, newProfileInfo)
-      .then(() => {
-        this.props.handleClose();
-        this.props.pageRefresh();
-      })
-      .catch((error) => console.error('err from save profile', error));
+    if (this.selectedFile !== null) {
+      ReactS3Client
+        .uploadFile(this.state.selectedFile)
+        .then((data) => {
+          this.setState({ imageUrl: data.location });
+          const newProfileInfo = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            location: this.state.location,
+            imageUrl: this.state.imageUrl,
+            userName: this.state.userName,
+            uid: authData.getUid(),
+          };
+          userProfilesData.updateProfile(userId, newProfileInfo)
+            .then(() => {
+              this.props.handleClose();
+              this.props.pageRefresh();
+            })
+            .catch((error) => console.error('err from save profile', error));
+        });
+    } else {
+      const newProfileInfo = {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        location: this.state.location,
+        imageUrl: this.state.imageUrl,
+        userName: this.state.userName,
+        uid: authData.getUid(),
+      };
+      userProfilesData.updateProfile(userId, newProfileInfo)
+        .then(() => {
+          this.props.handleClose();
+          this.props.pageRefresh();
+        })
+        .catch((error) => console.error('err from save profile', error));
+    }
   }
 
   firstNameChange = (e) => {
@@ -122,7 +166,6 @@ class ProfileForm extends React.Component {
       firstName,
       lastName,
       location,
-      imageUrl,
       userName,
       userNameExists,
     } = this.state;
@@ -183,16 +226,8 @@ class ProfileForm extends React.Component {
               </div>
               <div className="form-inline d-flex justify-content-center">
                 <div className="form-group row justify-content-center">
-                  <label htmlFor="image-url" className="col-form-label">Image Url</label>
-                  <input
-                    type="text"
-                    className="form-control m-2"
-                    id="image-url"
-                    value={imageUrl}
-                    onChange={this.urlChange}
-                    placeholder="Enter Image Url"
-                    required>
-                    </input>
+                  <label htmlFor="image-url" className="col-form-label">Upload Image: </label>
+                  <input type="file" onChange={this.singleFileChangedHandler}/>
                 </div>
               </div>
               <div className="form-inline d-flex justify-content-center">

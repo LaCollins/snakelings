@@ -7,7 +7,6 @@ import snakelingsData from '../../../helpers/data/snakelingsData';
 import statesData from '../../../helpers/data/statesData';
 import sightingsData from '../../../helpers/data/sightingsData';
 import apiKeys from '../../../helpers/apiKeys.json';
-// import awsData from '../../../helpers/data/awsData';
 
 const config = apiKeys.awsKeys;
 
@@ -177,10 +176,9 @@ uploadImage = () => {
             description: this.state.description,
           };
           sightingsData.updateSighting(sightingId, updatedSighting)
-            .then(() => this.props.history.push(`/sightings/user/${userId}`))
-            .catch((error) => console.error('err from sighting edit', error));
+            .then(() => this.props.history.push(`/sightings/user/${userId}`));
         })
-        .catch((err) => console.error(err));
+        .catch((error) => console.error('err from sighting edit', error));
     } else {
       const updatedSighting = {
         identified: this.state.identified,
