@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './SightingForm.scss';
+import S3 from 'react-aws-s3';
 import authData from '../../../helpers/data/authData';
 import snakelingsData from '../../../helpers/data/snakelingsData';
 import statesData from '../../../helpers/data/statesData';
 import sightingsData from '../../../helpers/data/sightingsData';
+import apiKeys from '../../../helpers/apiKeys.json';
+// import awsData from '../../../helpers/data/awsData';
+
+const config = apiKeys.awsKeys;
+
+const ReactS3Client = new S3(config);
 
 class SightingForm extends React.Component {
   state = {
@@ -19,6 +26,23 @@ class SightingForm extends React.Component {
     states: [],
     singleSnake: {},
     singleState: {},
+    selectedFile: null,
+  }
+
+uploadImage = () => {
+  ReactS3Client
+    .uploadFile(this.state.selectedFile)
+    .then((data) => {
+      this.setState({ imageUrl: data.location });
+      this.saveSightingEvent();
+    })
+    .catch((err) => console.error(err));
+};
+
+
+  singleFileChangedHandler = (e) => {
+    e.preventDefault();
+    this.setState({ selectedFile: e.target.files[0] });
   }
 
   saveSightingEvent = () => {
@@ -124,11 +148,6 @@ class SightingForm extends React.Component {
     this.setState({ county: e.target.value });
   }
 
-  urlChange = (e) => {
-    e.preventDefault();
-    this.setState({ imageUrl: e.target.value });
-  }
-
   changeIdentified = (e) => {
     const checkedValue = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     this.setState({ identified: checkedValue });
@@ -142,19 +161,41 @@ class SightingForm extends React.Component {
   sightingEditEvent = () => {
     const { sightingId } = this.props.match.params;
     const userId = authData.getUid();
-    const updatedSighting = {
-      identified: this.state.identified,
-      snakeId: this.state.snakeId,
-      stateId: this.state.stateId,
-      county: this.state.county,
-      imageUrl: this.state.imageUrl,
-      uid: userId,
-      dateFound: this.state.dateFound,
-      description: this.state.description,
-    };
-    sightingsData.updateSighting(sightingId, updatedSighting)
-      .then(() => this.props.history.push(`/sightings/user/${userId}`))
-      .catch((error) => console.error('err from sighting edit', error));
+    if (this.selectedFile !== null) {
+      ReactS3Client
+        .uploadFile(this.state.selectedFile)
+        .then((data) => {
+          this.setState({ imageUrl: data.location });
+          const updatedSighting = {
+            identified: this.state.identified,
+            snakeId: this.state.snakeId,
+            stateId: this.state.stateId,
+            county: this.state.county,
+            imageUrl: this.state.imageUrl,
+            uid: userId,
+            dateFound: this.state.dateFound,
+            description: this.state.description,
+          };
+          sightingsData.updateSighting(sightingId, updatedSighting)
+            .then(() => this.props.history.push(`/sightings/user/${userId}`))
+            .catch((error) => console.error('err from sighting edit', error));
+        })
+        .catch((err) => console.error(err));
+    } else {
+      const updatedSighting = {
+        identified: this.state.identified,
+        snakeId: this.state.snakeId,
+        stateId: this.state.stateId,
+        county: this.state.county,
+        imageUrl: this.state.imageUrl,
+        uid: userId,
+        dateFound: this.state.dateFound,
+        description: this.state.description,
+      };
+      sightingsData.updateSighting(sightingId, updatedSighting)
+        .then(() => this.props.history.push(`/sightings/user/${userId}`))
+        .catch((error) => console.error('err from sighting edit', error));
+    }
   }
 
   checkEditOrCreate = (e) => {
@@ -163,7 +204,7 @@ class SightingForm extends React.Component {
     if (sightingId) {
       this.sightingEditEvent();
     } else {
-      this.saveSightingEvent();
+      this.uploadImage();
     }
   }
 
@@ -172,7 +213,6 @@ class SightingForm extends React.Component {
       dateFound,
       county,
       identified,
-      imageUrl,
       description,
       snakes,
       states,
@@ -268,17 +308,8 @@ class SightingForm extends React.Component {
         </div>
         <div className="form-inline d-flex justify-content-center">
           <div className="form-group row">
-            <label htmlFor="snake-image" className="col-form-label">Image Url:</label>
-            <input
-            type="text"
-            className="form-control m-2"
-            id="snake-image"
-            placeholder="Enter Image Url"
-            value={imageUrl}
-            onChange={this.urlChange}
-            required
-            >
-            </input>
+            <label htmlFor="snake-image" className="col-form-label">Snake Image: </label>
+            <input type="file" onChange={this.singleFileChangedHandler}/>
           </div>
         </div>
         <div className="form-inline d-flex justify-content-center">
