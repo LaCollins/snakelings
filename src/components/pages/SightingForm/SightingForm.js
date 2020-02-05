@@ -152,6 +152,11 @@ uploadImage = () => {
     this.setState({ identified: checkedValue });
   }
 
+  changeNewImage = (e) => {
+    const checkedValue = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    this.setState({ newImage: checkedValue });
+  }
+
   descriptionChange = (e) => {
     e.preventDefault();
     this.setState({ description: e.target.value });
@@ -160,7 +165,7 @@ uploadImage = () => {
   sightingEditEvent = () => {
     const { sightingId } = this.props.match.params;
     const userId = authData.getUid();
-    if (this.selectedFile !== null) {
+    if (this.state.selectedFile !== null) {
       ReactS3Client
         .uploadFile(this.state.selectedFile)
         .then((data) => {

@@ -97,7 +97,7 @@ class ProfileForm extends React.Component {
 
   saveUpdatedProfileEvent = () => {
     const userId = this.state.profileId;
-    if (this.selectedFile !== null) {
+    if (this.state.selectedFile !== null) {
       ReactS3Client
         .uploadFile(this.state.selectedFile)
         .then((data) => {

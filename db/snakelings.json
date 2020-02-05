@@ -171,7 +171,7 @@
     "secondaryColor": "brown"
   },
   "snake10": {
-    "commonName": "Comman Garter Snake",
+    "commonName": "Common Garter Snake",
     "scientificName": "Thamnophis sirtalis",
     "imageUrl": "https://www.burkemuseum.org/sites/default/files/images/biology/herpetology/washington/common-gartersnake1-1100x555.jpg",
     "venomous": false,
@@ -190,7 +190,7 @@
     "secondaryColor": "red"
   },
   "snake11": {
-    "commonName": "Comman Kingsnake",
+    "commonName": "Common Kingsnake",
     "scientificName": "Lampropeltis getula",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Lampropeltis_getula_getula.jpg",
     "venomous": false,
