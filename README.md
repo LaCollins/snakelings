@@ -34,11 +34,54 @@ Additionally, by reporting a snake sighting, hikers can be on alert for venomous
 * Snake filters and data will be more refined and offer better color options to include the true diversity of potential color ranges for single species.
 * A FAQ page will be included to answer common myths and misunderstandings about snakes.
 * There will be a search bar included on both the main snake page and the sightings page that will alow users to filter snakes via keywords.
+* Snake information pages will include a sightings column with the ability to view all sightings for that species as well as more images of the species.
 
 ## Screenshots
+Landing page:
+![Main View](https://github.com/LaCollins/snakelings/blob/master/screenshots/mainView.PNG?raw=true)
+
+View all Snakes:
+![View All Snakes](https://github.com/LaCollins/snakelings/blob/master/screenshots/snakePage-viewAll.PNG?raw=true)
+
+Filter by State:
+![Filter by State](https://github.com/LaCollins/snakelings/blob/master/screenshots/filterByState.PNG?raw=true)
+
+Filter By Snake Appearance:
+![Filter by head shape](https://github.com/LaCollins/snakelings/blob/master/screenshots/filterByAppearance-1.PNG?raw=true)
+![Filter by body shape](https://github.com/LaCollins/snakelings/blob/master/screenshots/filterByAppearance-2.PNG?raw=true)
+![Filter by tail shape](https://github.com/LaCollins/snakelings/blob/master/screenshots/filterByAppearance-3.PNG?raw=true)
+![Filter by color and markings ](https://github.com/LaCollins/snakelings/blob/master/screenshots/filterByAppearance-4.PNG?raw=true)
+
+Results:
+![Filtered snake](https://github.com/LaCollins/snakelings/blob/master/screenshots/filteredSnake.PNG?raw=true)
+
+View of Single Snake Information Page:
+![Single snake view](https://github.com/LaCollins/snakelings/blob/master/screenshots/snakeInformation.PNG?raw=true)
+
+Create User Profile form for New Users:
+![profile form](https://github.com/LaCollins/snakelings/blob/master/screenshots/profileForm.PNG?raw=true)
+![image upload for user image](https://github.com/LaCollins/snakelings/blob/master/screenshots/imageUpload.PNG?raw=true)
+
+Report Snake Form (note that reporting for a single snake-view will automatically select that species as the identified species):
+![report form](https://github.com/LaCollins/snakelings/blob/master/screenshots/reportForm.PNG?raw=true)
+
+Sightings Page:
+![All sightings](https://github.com/LaCollins/snakelings/blob/master/screenshots/sightingsPage.PNG?raw=true)
+
+Manage Sightings View:
+![manage sightings](https://github.com/LaCollins/snakelings/blob/master/screenshots/mySightings.PNG?raw=true)
+
+Edit Sightings:
+![edit sightigns](https://github.com/LaCollins/snakelings/blob/master/screenshots/editForm.PNG?raw=true)
+
+Profile View:
+![view profile](https://github.com/LaCollins/snakelings/blob/master/screenshots/userProfile.PNG?raw=true)
+
+Edit Profile:
+![edit profile](https://github.com/LaCollins/snakelings/blob/master/screenshots/EditProfile.PNG?raw=true)
 
 ## Demo
-[View the Project Here](http://snakelings.con)
+[View the Project Here](http://snakelings.com)
 
 ## How to Run
 * Clone down thsi project from [GitHub](https://github.com/LaCollins/snakelings)
