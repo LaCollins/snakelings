@@ -1,68 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# NSS Front End Capstone - Snakelings
 
-## Available Scripts
+## Specs
+* React
+* Firebase CRUD
+* Bootstrap
+* Use Github Projects for planning
 
-In the project directory, you can run:
+## Technologies Used
+* HTML5, CSS, JavaScript
+* [Node-Sass 4.13.1](https://www.npmjs.com/package/node-sass?activeTab=versions) and [Bootstrap 4.4.1](https://getbootstrap.com/) for styling
+* [React 15.12.0](https://reactjs.org/) for core app functionality
+* [React Bootstrap v1.0.0-beta.16](https://react-bootstrap.github.io/) for navbar and modals
+* [Firebase 7.7.0](https://firebase.google.com/) for authentication and data storage
+* [S3Client AWS-S3 1.3.0](https://www.npmjs.com/package/react-aws-s3) and [AWS S3 Bucket](https://aws.amazon.com/) for user image uploads and storage
+* [FontAwesome 5.12.0](https://fontawesome.com/) for icons
 
-### `npm start`
+## Description
+A Snake Identification and Tracking Resource.
+The concept is that this app will help users identify species that they may come across, whether they are hiking, at the park, or in their garden. By quickly identifying species, users will be able to understand if they are dealing with a venomous species or not, which will hopefully lead to fewer snakes and people being harmed due to misidentification.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Additionally, by reporting a snake sighting, hikers can be on alert for venomous snakes that may have been reported in the area. Agencies such as the DNR could also use these reports to track populations of endangered or threatened species.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* Snakelings is an app that is designed to help users identify various snake species through descriptive filters, view snakes by state, and report snake sightings.
+* Any users may view the database and use the identification features with or without logging in.
+* If a user wishes to report a sighting, they are prompted to create a profile if they do not have one already.
+* An existing user may report sightings and manage their own sitings via edit and delete functions.
 
-### `npm test`
+### What's in store for the future of Snakelings?
+* Future functionality for authtenticated users will include the ability to suggest potential identifications for reports with unidentified snakes as well as geo-location for users.
+* Users will recieve a notification when there is a suggestion or comment left on a sighting they reported.
+* Sightings will be able to be filtered by location, species, and date.
+* All snake species accross the entire 50 US States will be added to the database.
+* Snake filters and data will be more refined and offer better color options to include the true diversity of potential color ranges for single species.
+* A FAQ page will be included to answer common myths and misunderstandings about snakes.
+* There will be a search bar included on both the main snake page and the sightings page that will alow users to filter snakes via keywords.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshots
 
-### `npm run build`
+## Demo
+[View the Project Here](http://snakelings.con)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to Run
+* Clone down thsi project from [GitHub](https://github.com/LaCollins/snakelings)
+* Install [http-server](https://www.npmjs.com/package/http-server)
+* In your browser, navigate to [https://localhost:3000](https://localhost:3000)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Contributors
+[Laura Collins](https://github.com/LaCollins)

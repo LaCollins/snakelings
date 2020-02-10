@@ -128,7 +128,7 @@
     "baseColor": "tan",
     "markings": true,    
     "markColor": "brown",
-    "markShape": "blotch",
+    "markShape": "blotches",
     "scaleTexture": "rough",
     "secondaryColor": "brown"
   },
