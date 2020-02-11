@@ -19,8 +19,7 @@ class Snakes extends React.Component {
     this.setState({ showForm: true });
   }
 
-  setCloseForm = (e) => {
-    e.preventDefault();
+  setCloseForm = () => {
     this.setState({ showForm: false });
   }
 

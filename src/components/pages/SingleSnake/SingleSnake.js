@@ -55,13 +55,13 @@ class SingleSnake extends React.Component {
         </div>
         <p className="mt-3"><strong>Diet:</strong> {snake.diet}</p>
           <p className="mt-3"><strong>Size:</strong> {snake.size}</p>
-          <p className="mt-3"><strong>Conesrvation Status:</strong> {snake.conservationStatus}</p>
+          <p className="mt-3"><strong>Conservation Status:</strong> {snake.conservationStatus}</p>
           { snake.venomous
             ? (<p className="mt-3 venom"><strong>Venomous</strong></p>)
             : (<p className="mt-3 non-venom"><strong>Non-venomous</strong></p>)}
             {
               authed
-                ? (<Link className="btn btn-dark" to={`/sightings/new/${snakeId}`}>Report A Sighting</Link>)
+                ? (<Link className="btn btn-dark mb-5" to={`/sightings/new/${snakeId}`}>Report A Sighting</Link>)
                 : <Link className="btn btn-dark" to={`/sightings/new/${snakeId}`} onClick={this.forceLogin}>Report A Sighting</Link>
             }
       </div>
