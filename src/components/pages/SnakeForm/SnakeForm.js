@@ -85,7 +85,7 @@ class SnakeForm extends React.Component {
     } = this.state;
     e.preventDefault();
     this.props.filterBodyColor(selectedBaseColor, selectedMarkingShape, selectedMarkingColor);
-    this.props.setCloseForm(e);
+    this.props.setCloseForm();
   }
 
   filterTailShapeEvent = (e) => {

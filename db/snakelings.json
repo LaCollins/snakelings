@@ -189,25 +189,6 @@
     "scaleTexture": "smooth",
     "secondaryColor": "red"
   },
-  "snake11": {
-    "commonName": "Common Kingsnake",
-    "scientificName": "Lampropeltis getula",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Lampropeltis_getula_getula.jpg",
-    "venomous": false,
-    "diet": "other snakes, amphibians, eggs, lizards, small mammals",
-    "size": "36 in",    
-    "conservationStatus": "least concern",
-    "description": "Common kingsnakes show great variation in color patterns across the range of the species.  There are between 7 and 10 subspecies of common kingsnake, all of which are easily distinguished by their distinct color patterns.  Eastern kingsnakes (L. getula getula) are black with yellow chain markings, thus giving them another name — chain kingsnake.  Black kingsnakes (L. getula niger) and Mexican black kingsnakes are solid black in color.  Florida kingsnakes (L. getula floridana) are rich brown with yellow speckles covering their scales. Desert kingsnakes (L. getula splendida) are similar to Eastern kingsnakes, but have a black mask over the head and are more yellow.",    
-    "headShape": "round",
-    "bodyShape": "medium",    
-    "tailShape": "long",
-    "baseColor": "black",
-    "markings": true,    
-    "markColor": "white",
-    "markShape": "bands",
-    "scaleTexture": "smooth",
-    "secondaryColor": ""
-  },
   "snake12": {
     "commonName": "Common Water Snake",
     "scientificName": "Nerodia sipedon",
