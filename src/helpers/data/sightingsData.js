@@ -20,6 +20,25 @@ const getAllSightings = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSightingsBySnakeId = (snakeId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/sightings.json?orderBy="snakeId"&equalTo="${snakeId}"`)
+    .then((result) => {
+      const allSightingsObj = result.data;
+      const sightings = [];
+      if (allSightingsObj != null) {
+        Object.keys(allSightingsObj).forEach((sightingId) => {
+          const newSighting = allSightingsObj[sightingId];
+          newSighting.id = sightingId;
+          sightings.push(newSighting);
+        });
+      }
+      resolve(sightings);
+    })
+    .catch((err) => {
+      reject(err);
+    });
+});
+
 const getSightingsByUid = (uid) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/sightings.json?orderBy="uid"&equalTo="${uid}"`)
     .then((result) => {
@@ -54,4 +73,5 @@ export default {
   getSingleSighting,
   updateSighting,
   deleteSighting,
+  getSightingsBySnakeId,
 };
