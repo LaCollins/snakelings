@@ -22,4 +22,12 @@
     color: green;
     font-size: larger;
   }
+
+  .snakeInfo, .additionalInfo {
+    background-color: lightgray;
+    border-radius: 10px;
+    border: 3px, solid, $slate;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
 }

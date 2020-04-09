@@ -49,11 +49,12 @@ class SingleSnake extends React.Component {
         <h2><em>{snake.scientificName}</em></h2>
         <div className="row d-flex justify-content-center snakeInfo m-0">
           <div className="col-sm-6 m-auto">          <img src={snake.imageUrl} className="singleSnakeImage" alt={snake.commonName} /></div>
-          <div className="col-sm-6 m-auto">
+          <div className="col-sm-6 m-auto descriptionBox">
             <h5>{snake.description}</h5>
           </div>
         </div>
-        <p className="mt-3"><strong>Diet:</strong> {snake.diet}</p>
+        <div className="additionalInfo">
+          <p><strong>Diet:</strong> {snake.diet}</p>
           <p className="mt-3"><strong>Size:</strong> {snake.size}</p>
           <p className="mt-3"><strong>Conservation Status:</strong> {snake.conservationStatus}</p>
           { snake.venomous
@@ -61,9 +62,10 @@ class SingleSnake extends React.Component {
             : (<p className="mt-3 non-venom"><strong>Non-venomous</strong></p>)}
             {
               authed
-                ? (<Link className="btn btn-dark mb-5" to={`/sightings/new/${snakeId}`}>Report A Sighting</Link>)
+                ? (<Link className="btn btn-dark" to={`/sightings/new/${snakeId}`}>Report A Sighting</Link>)
                 : <Link className="btn btn-dark" to={`/sightings/new/${snakeId}`} onClick={this.forceLogin}>Report A Sighting</Link>
             }
+          </div>
       </div>
     );
   }

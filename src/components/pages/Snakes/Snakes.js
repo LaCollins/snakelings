@@ -12,6 +12,7 @@ class Snakes extends React.Component {
     snakes: [],
     showMap: false,
     showForm: false,
+    stateId: '',
   }
 
   setShowForm = (e) => {
@@ -34,6 +35,18 @@ class Snakes extends React.Component {
         this.setState({ snakes: snakeArray });
       })
       .catch((error) => console.error('error from snakes', error));
+    this.setState({ stateId: '' });
+  }
+
+  getVenomousSnakes = () => {
+    const { snakes } = this.state;
+    const venomousSnakes = [];
+    for (let i = 0; i < snakes.length; i += 1) {
+      if (snakes[i].venomous === true) {
+        venomousSnakes.push(snakes[i]);
+      }
+    }
+    this.setState({ snakes: venomousSnakes });
   }
 
   componentDidMount() {
@@ -54,6 +67,7 @@ class Snakes extends React.Component {
   setMapState = (stateId) => {
     const { snakes } = this.state;
     const snakesByState = [];
+    this.setState({ stateId });
     stateSnakesData.getSnakesByState(stateId)
       .then((response) => {
         response.forEach((state) => {
@@ -199,7 +213,9 @@ class Snakes extends React.Component {
             </div>
           </form>
         </div> */}
+        { this.state.stateId !== '' ? (<h4>Currently viewing snakes of {this.state.stateId}</h4>) : ('')}
         <button className="btn btn-dark mb-3 mr-3 mt-0" onClick={this.getSnakes}>View All / Reset Filter</button>
+        <button className="btn btn-dark mb-3 mr-3 mt-0" onClick={this.getVenomousSnakes}>View Venomous</button>
         <button className="btn btn-dark mb-3 mt-0" onClick={this.setShowMap}>Filter By State</button>
         { this.state.showMap && <StateMap closeMap={this.closeMap} setMapState={this.setMapState} showMap={this.state.showMap} />}
         <button className="btn btn-dark mb-3 ml-3 mt-0" onClick={this.setShowForm}>Filter By Appearance</button>
