@@ -88,25 +88,37 @@ class SnakeForm extends React.Component {
     this.props.setCloseForm();
   }
 
-  filterTailShapeEvent = (e) => {
-    e.preventDefault();
+  filterTailShapeEvent = () => {
     this.props.filterTailShape(this.state.selectedTailOption);
     this.setState({ tailShape: false });
     this.setState({ baseColor: true });
   }
 
-  filterBodyShapeEvent = (e) => {
-    e.preventDefault();
+  finishOnTailShape = () => {
+    this.filterTailShapeEvent();
+    this.props.setCloseForm();
+  }
+
+  filterBodyShapeEvent = () => {
     this.props.filterBodyShape(this.state.selectedBodyOption);
     this.setState({ bodyShape: false });
     this.setState({ tailShape: true });
   }
 
-  filterHeadShapeEvent = (e) => {
-    e.preventDefault();
+  finishOnBodyShape = () => {
+    this.filterBodyShapeEvent();
+    this.props.setCloseForm();
+  }
+
+  filterHeadShapeEvent = () => {
     this.props.filterHeadShape(this.state.selectionHeadOption);
     this.setState({ headShape: false });
     this.setState({ bodyShape: true });
+  }
+
+  finishOnHeadShape = () => {
+    this.filterHeadShapeEvent();
+    this.props.setCloseForm();
   }
 
   showBaseBodyColor = () => {
@@ -242,6 +254,7 @@ class SnakeForm extends React.Component {
       <label className="form-check-label" htmlFor="tailOption4">Unknown</label>
     </div>
     <div className="row justify-content-around">
+    <button className="btn btn-dark" onClick={this.finishOnTailShape}>Finish and Close</button>
     <button className="btn btn-dark" onClick={this.filterTailShapeEvent}>Next</button>
     </div>
     </div>
@@ -295,6 +308,7 @@ class SnakeForm extends React.Component {
       <label className="form-check-label" htmlFor="bodyOption4">Unknown</label>
     </div>
     <div className="row justify-content-around">
+    <button className="btn btn-dark" onClick={this.finishOnBodyShape}>Finish and Close</button>
     <button className="btn btn-dark" onClick={this.filterBodyShapeEvent}>Next</button>
     </div>
     </div>
@@ -337,6 +351,7 @@ class SnakeForm extends React.Component {
       <label className="form-check-label" htmlFor="headOption3">Unknown</label>
     </div>
     <div className="row justify-content-around">
+    <button className="btn btn-dark" onClick={this.finishOnHeadShape}>Finish and Close</button>
     <button className="btn btn-dark" onClick={this.filterHeadShapeEvent}>Next</button>
     </div>
   </div>)
