@@ -59,7 +59,7 @@
   "snake4": {
     "commonName": "Black Speckled Kingsnake",
     "scientificName": "Lampropeltis nigra(Stejneger)",
-    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/blackRacer.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/blackSpeckledKingsnake.jpg",
     "venomous": false,
     "diet": "rodents, birds, lizards, other snakes, eggs",
     "size": "66 in",    
