@@ -199,7 +199,7 @@ class Snakes extends React.Component {
             </div>
           </form>
         </div> */}
-        <button className="btn btn-dark mb-3 mr-3 mt-0" onClick={this.getSnakes}>View All</button>
+        <button className="btn btn-dark mb-3 mr-3 mt-0" onClick={this.getSnakes}>View All / Reset Filter</button>
         <button className="btn btn-dark mb-3 mt-0" onClick={this.setShowMap}>Filter By State</button>
         { this.state.showMap && <StateMap closeMap={this.closeMap} setMapState={this.setMapState} showMap={this.state.showMap} />}
         <button className="btn btn-dark mb-3 ml-3 mt-0" onClick={this.setShowForm}>Filter By Appearance</button>

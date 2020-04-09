@@ -19,11 +19,12 @@
   }
 
   .fixed-top {
-    box-shadow: 0 10px 10px black;
-    background-image: linear-gradient($slate, black);
+    box-shadow: 0 10px 10px rgb(77, 77, 77);
+    background-image: linear-gradient(lightgray, rgb(51, 51, 51));
   }
 
   .userProfileIcon {
     font-size: 25px;
   }
+
 }

@@ -2,7 +2,7 @@
   "snake1": {
     "commonName": "Timber Rattlesnake",
     "scientificName": "crotalus horridus",
-    "imageUrl": "https://user-images.githubusercontent.com/51382883/72484643-8a36f380-37ca-11ea-869d-37a3705111e5.png",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/timberRattler.png",
     "venomous": true,
     "diet": "small mammals, birds, frogs, snakes",
     "size": "36-60 in, 1.1-3.3 lbs",    
@@ -21,7 +21,7 @@
   "snake2": {
     "commonName": "Black Pine Snake",
     "scientificName": "Pituophis melanoleucus lodingi",
-    "imageUrl": "http://www.thirdeyeherp.com/05bpmed2.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/blackPineSnake.jpg",
     "venomous": false,
     "diet": "rats, mice, moles, and other small mammals, eggs",
     "size": "74 in, 4-8 lbs",    
@@ -40,7 +40,7 @@
   "snake3": {
     "commonName": "Black Racer",
     "scientificName": "Coluber constrictor",
-    "imageUrl": "https://www.animalspot.net/wp-content/uploads/2014/07/Black-Racer-Snake-Photos.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/blackRacer.jpg",
     "venomous": false,
     "diet": "rodents, birds, lizards, other snakes, frogs, toads, insects",
     "size": "36-60 in, 1.25 lbs",    
@@ -59,7 +59,7 @@
   "snake4": {
     "commonName": "Black Speckled Kingsnake",
     "scientificName": "Lampropeltis nigra(Stejneger)",
-    "imageUrl": "https://i.pinimg.com/originals/78/b4/7a/78b47ade3871442b6ad016aa4a4b925b.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/blackRacer.jpg",
     "venomous": false,
     "diet": "rodents, birds, lizards, other snakes, eggs",
     "size": "66 in",    
@@ -78,7 +78,7 @@
   "snake5": {
     "commonName": "Broad Banded Water Snake",
     "scientificName": "Nerodia fasciata",
-    "imageUrl": "http://www.thirdeyeherp.com/assets/images/broadband-4739-2000x1513-85-2000x1513-47.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/broadBandedWaterSnake.jpg",
     "venomous": false,
     "diet": "fish, tadpoles, frogs, toads, crayfish",
     "size": "36 in",    
@@ -97,7 +97,7 @@
   "snake6": {
     "commonName": "Brown Snake",
     "scientificName": "Storeria dekayi ssp.",
-    "imageUrl": "http://www.biokids.umich.edu/collections/contributors/james_harding/pcd3912_060/medium.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/brownSnake.jpg",
     "venomous": false,
     "diet": "slugs, earthworms, snails, salamanders, grubs",
     "size": "6-13 in",    
@@ -116,7 +116,7 @@
   "snake7": {
     "commonName": "Brown Water Snake",
     "scientificName": "Nerodia taxispilota",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Brown_Water_Snake.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/brownWaterSnake.jpg",
     "venomous": false,
     "diet": "fish, other snakes, frogs, catfish",
     "size": "30-55 in",    
@@ -135,7 +135,7 @@
   "snake8": {
     "commonName": "Butler's Garter Snake",
     "scientificName": "Nerodia taxispilota",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Thamnophis_butleri.jpg/1920px-Thamnophis_butleri.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/butlersGarterSnake.jpg",
     "venomous": false,
     "diet": "earthworms, leeches, salamanders, frogs",
     "size": "15-20 in",    
@@ -154,7 +154,7 @@
   "snake9": {
     "commonName": "Coachwhip Snake",
     "scientificName": "Masticophis flagellum",
-    "imageUrl": "http://herpsofnc.org/wp-content/uploads/2016/02/Masticophis-flagellum-5.16.03-Kiawah-I.-SC-top-copy.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/coachwhipSnake.jpg",
     "venomous": false,
     "diet": "insects, amphibians, lizards, snakes, birds, rodents",
     "size": "96 in",    
@@ -173,7 +173,7 @@
   "snake10": {
     "commonName": "Common Garter Snake",
     "scientificName": "Thamnophis sirtalis",
-    "imageUrl": "https://www.burkemuseum.org/sites/default/files/images/biology/herpetology/washington/common-gartersnake1-1100x555.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/commonGarterSnake.jpg",
     "venomous": false,
     "diet": "earthworms, amphibians, leeches, slugs, snails, insects, crayfish, small fish, other snakes, small mammals",
     "size": "18-54 in",    
@@ -192,7 +192,7 @@
   "snake12": {
     "commonName": "Common Water Snake",
     "scientificName": "Nerodia sipedon",
-    "imageUrl": "https://www.vtherpatlas.org/wp2016/wp-content/uploads/N-sipedon-Dalton-Muzzy-1024x482.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/commonWaterSnake.jpg",
     "venomous": false,
     "diet": "amphibians, fish, crayfish, large insects, leeches, other snakes, turtles, birds, small mammals",
     "size": "36-42 in",    
@@ -211,7 +211,7 @@
   "snake13": {
     "commonName": "Copperhead",
     "scientificName": "Agkistrodon contortrix",
-    "imageUrl": "https://bellavistapoa.com/wp-content/uploads/2019/08/copper.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/copperHead.jpg",
     "venomous": true,
     "diet": "small mammals, lizards, frogs, toads, insects, small birds, salamanders",
     "size": "20-40 in",    
@@ -230,7 +230,7 @@
   "snake14": {
     "commonName": "Cottonmouth",
     "scientificName": "Agkistrodon contortrix",
-    "imageUrl": "http://www.wlf.louisiana.gov/sites/default/files/imagecache/Full-960/images/jpg/serpentes/33022-cottonmouth/cotton-mouth-1.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/cottonMouth.jpg",
     "venomous": true,
     "diet": "amphibians, fish, crayfish, large insects, baby alligators, other snakes, turtles, birds, small mammals",
     "size": "30-48 in",    
@@ -249,7 +249,7 @@
   "snake15": {
     "commonName": "Dekay's Brown Snake",
     "scientificName": "Storeria d. dekayi",
-    "imageUrl": "https://rtpi.org/wp-content/uploads/2014/10/Dekays-Brown-Snake-Strike-position.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/dekaysBrownSnake.jpg",
     "venomous": false,
     "diet": "insects, earthworms, tree frogs",
     "size": "9-15 in",    
@@ -268,7 +268,7 @@
   "snake16": {
     "commonName": "Diamondback Water Snake",
     "scientificName": "Nerodia rhombifer",
-    "imageUrl": "https://www.animalspot.net/wp-content/uploads/2015/11/Diamondback-Water-Snakes.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/diamondbackWaterSnake.jpg",
     "venomous": false,
     "diet": "amphibians, fish",
     "size": "30-48 in",    
@@ -287,7 +287,7 @@
   "snake17": {
     "commonName": "Eastern Black Kingsnake",
     "scientificName": "Lampropeltis nigra",
-    "imageUrl": "https://lh3.googleusercontent.com/krWKmZLhVP2D7dUpJGgIdUSbQfVA1OUrsRJiFs7iZw3N_rm-hhTrP2JjESrwWkq9ZcRbj9sIPdLimEGttHU=s1200",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternBlackKingsnake.jpg",
     "venomous": false,
     "diet": "other snakes, amphibians, eggs, lizards, small mammals",
     "size": "48 in",    
@@ -306,7 +306,7 @@
   "snake18": {
     "commonName": "Eastern Coachwhip",
     "scientificName": "Masticophis flagellum flagellum",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Masticophis_flagellum_flagellum.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternCoachwhip.jpg",
     "venomous": false,
     "diet": "birds, large insects, lizards, other snakes, small mammals",
     "size": "50-72 in",    
@@ -325,7 +325,7 @@
   "snake19": {
     "commonName": "Eastern Coral Snake",
     "scientificName": "Micrurus fulvius",
-    "imageUrl": "https://texashillcountry.com/wp-content/uploads/Eastern-Coral-Snake-660x400.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternCoralSnake.jpg",
     "venomous": true,
     "diet": "snakes, lizards",
     "size": "18-30 in",    
@@ -344,7 +344,7 @@
   "snake20": {
     "commonName": "Eastern Diamondback Rattlesnake",
     "scientificName": "Crotalus adamanteus",
-    "imageUrl": "https://www.southcarolinapublicradio.org/sites/wltr/files/styles/x_large/public/201805/EasternDiamondBackRattlesnake.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternDiamondbackRattleSnake.jpg",
     "venomous": true,
     "diet": "snakes, lizards",
     "size": "48-60 in",    
@@ -363,7 +363,7 @@
   "snake21": {
     "commonName": "Eastern Foxsnake",
     "scientificName": "Pantherophis gloydi",
-    "imageUrl": "https://i.pinimg.com/originals/06/60/69/06606969abb3b6c8c01cc826117725b6.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternFoxsnake.jpg",
     "venomous": false,
     "diet": "small mammals, frogs, birds, eggs",
     "size": "36-66 in",    
@@ -382,7 +382,7 @@
   "snake22": {
     "commonName": "Eastern Garter Snake",
     "scientificName": "Thamnophis sirtalis sirtalis",
-    "imageUrl": "http://herpsofnc.org/wp-content/uploads/2016/02/Thamnophis-sirtalis-7.19.02-Aiken-Co-SC-3-copy.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternGarterSnake.jpg",
     "venomous": false,
     "diet": "toads, frogs, slugs, worms",
     "size": "18-26 in",    
@@ -401,7 +401,7 @@
   "snake23": {
     "commonName": "Eastern Hognose Snake",
     "scientificName": "Heterodon platirhinos",
-    "imageUrl": "https://www.nps.gov/caco/learn/nature/images/hog-nosed-snake-02.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternHognoseSnake.jpg",
     "venomous": false,
     "diet": "amphibians, toads, frogs",
     "size": "28 in",    
@@ -420,7 +420,7 @@
   "snake24": {
     "commonName": "Eastern Indigo Snake",
     "scientificName": "Drymarchon corais couperi",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Eastern_Indigo_Snake.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternIndigoSnake.jpg",
     "venomous": false,
     "diet": "snakes, turtles, lizards, frogs, toads, birds, eggs, small mammals",
     "size": "72-84 in",    
@@ -439,7 +439,7 @@
   "snake25": {
     "commonName": "Eastern Massasauga",
     "scientificName": "Sistrurus catenatus catenatus",
-    "imageUrl": "https://www.gannett-cdn.com/-mm-/c0ab8917bdcb19b700bdb929c8a27f6c69a527b6/c=45-0-1577-1152/local/-/media/2015/09/30/DetroitFreePress/DetroitFreePress/635792230370148407-DFP-locgrey-1206.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternMassasagua.jpg",
     "venomous": true,
     "diet": "small mammals, other snakes, birds, frogs",
     "size": "24-36 in",    
@@ -458,7 +458,7 @@
   "snake26": {
     "commonName": "Eastern Milk Snake",
     "scientificName": "Lampropeltis triangulum triangulum",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Tennessee_milksnake.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternMilksnake.jpg",
     "venomous": false,
     "diet": "small mammals, other snakes, birds, frogs",
     "size": "24-36 in",    
@@ -477,7 +477,7 @@
   "snake27": {
     "commonName": "Eastern Ribbon Snake",
     "scientificName": "Thamnophis sauritus sauritus",
-    "imageUrl": "https://live.staticflickr.com/5830/21805239111_cb27b9a88c_b.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternRibbonsnake.jpg",
     "venomous": false,
     "diet": "amphibians, frogs, insects, fish",
     "size": "16-28 in",    
@@ -496,7 +496,7 @@
   "snake28": {
     "commonName": "Eastern Smooth Earth Snake",
     "scientificName": "Virginia valeriae valeriae",
-    "imageUrl": "https://live.staticflickr.com/5465/7407794886_d86ef1e890_b.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternSmoothEarthSnake.jpg",
     "venomous": false,
     "diet": "insects, larvae, earthworms",
     "size": "7-12 in",    
@@ -515,7 +515,7 @@
   "snake29": {
     "commonName": "Eastern Worm Snake",
     "scientificName": "Carphophis amoenus amoenus",
-    "imageUrl": "https://www.virginiaherpetologicalsociety.com/reptiles/snakes/eastern-wormsnake/sp_easternwormsnake001.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/easternWormSnake.jpg",
     "venomous": false,
     "diet": "insects, larvae, earthworms",
     "size": "7-11 in",    
@@ -534,7 +534,7 @@
   "snake30": {
     "commonName": "Flathead Snake",
     "scientificName": "Tantilla gracilis",
-    "imageUrl": "https://static.inaturalist.org/photos/189789/large.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/flatheadSnake.jpg",
     "venomous": false,
     "diet": "insects, larvae, earthworms, centipedes",
     "size": "7-8 in",    
@@ -553,7 +553,7 @@
   "snake31": {
     "commonName": "Florida Green Water Snake",
     "scientificName": "Nerodia floridana",
-    "imageUrl": "https://floridabackyardsnakes.com/_Media/florida-green2_med_hr.jpeg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/floridaGreenWaterSnake.jpeg",
     "venomous": false,
     "diet": "fish, frogs",
     "size": "30-55 in",    
@@ -572,7 +572,7 @@
   "snake32": {
     "commonName": "Florida Pine Snake",
     "scientificName": "Pituophis melanoleucus mugitus",
-    "imageUrl": "https://flaglerlive.com/wp-content/uploads/florida-pine-snake.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/floridaPineSnake.jpg",
     "venomous": false,
     "diet": "pocket gophers, small mammals, birds",
     "size": "46-66 in",    
@@ -591,7 +591,7 @@
   "snake33": {
     "commonName": "Glossy Crayfish Snake",
     "scientificName": "Regina rigida sinicola",
-    "imageUrl": "http://www.thehibbitts.net/troy/photo/snakes/r.rigida.tx.jasper.11.1.0106.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/glossyCrayfishSnake.jpg",
     "venomous": false,
     "diet": "crayfish",
     "size": "14-24 in",    
@@ -610,7 +610,7 @@
   "snake34": {
     "commonName": "Gopher Snake",
     "scientificName": "Pituophis catenifer",
-    "imageUrl": "https://cdn.britannica.com/31/181431-050-E2026701/Bull-snake.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/gopherSnake.jpg",
     "venomous": false,
     "diet": "gophers, small mammals, lizards, snakes, frogs, eggs",
     "size": "36-84 in",    
@@ -629,7 +629,7 @@
   "snake35": {
     "commonName": "Graham's Crayfish Snake",
     "scientificName": "Regina grahamii",
-    "imageUrl": "https://www.wildlifedepartment.com/sites/default/files/Graham%27s%20Crayfish%20Snake_Douglas%20Mills_0.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/grahmsCrayfishSnake.jpg",
     "venomous": false,
     "diet": "crayfish, fish",
     "size": "18-28 in",    
@@ -648,7 +648,7 @@
   "snake36": {
     "commonName": "Gray Ratsnake",
     "scientificName": "Pantherophis spiloides",
-    "imageUrl": "https://static.inaturalist.org/photos/3067893/large.jpg?1456535053",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/grayRatSnake.jpg",
     "venomous": false,
     "diet": "small mammals, birds, eggs, frogs, lizards",
     "size": "99-183 in",    
@@ -667,7 +667,7 @@
   "snake37": {
     "commonName": "Kingsnake",
     "scientificName": "Lampropeltis getula",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Lampropeltis_getula_getula.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/kingsnake.jpg",
     "venomous": false,
     "diet": "small mammals, birds, eggs, frogs, lizards",
     "size": "99-122 in",    
@@ -686,7 +686,7 @@
   "snake38": {
     "commonName": "Kirtland's Snake",
     "scientificName": "Clonophis kirtlandii",
-    "imageUrl": "https://www.paherps.com/wp-content/gallery/kirtland-adult/ckirtlandii2-1.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/kirtlandsSnake.jpg",
     "venomous": false,
     "diet": "crayfish, earthworms, slugs, minnows, salamanders, frogs, toads",
     "size": "12-18 in",    
@@ -705,7 +705,7 @@
   "snake39": {
     "commonName": "Lined Snake",
     "scientificName": "Tropidoclonion lineatum",
-    "imageUrl": "https://www.sdherps.org/media/363.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/linedSnake.jpg",
     "venomous": false,
     "diet": "earthworms",
     "size": "14-21 in",    
@@ -724,7 +724,7 @@
   "snake40": {
     "commonName": "Midland Water Snake",
     "scientificName": "Nerodia sipedon pleuralis",
-    "imageUrl": "https://srelherp.uga.edu/jd/jdweb/Herps/species/USsnakes/Nersipple1.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/midlandWaterSnake.jpg",
     "venomous": false,
     "diet": "fish, frogs, tadpoles, salamanders, crayfish, turtles",
     "size": "56-102 in",    
@@ -743,7 +743,7 @@
   "snake41": {
     "commonName": "Milk Snake",
     "scientificName": "Lampropeltis triangulum",
-    "imageUrl": "http://www.reptilesofaz.org/Graphics/Snakes/LAMTRI-cochise-03c.jpg",
+    "imageUrl": "https://snakelings.s3.us-east-2.amazonaws.com/snakeDataImages/milksnake.jpg",
     "venomous": false,
     "diet": "slugs, insects, crickets, earthworms, lizards, small mammals, birds, eggs, snakes",
     "size": "24-120 in",    
