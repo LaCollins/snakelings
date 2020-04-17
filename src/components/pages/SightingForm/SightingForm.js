@@ -162,10 +162,21 @@ uploadImage = () => {
     this.setState({ description: e.target.value });
   }
 
+  deletePrevImage = () => {
+    const fileToDelete = this.state.imageUrl.split('snakes/');
+    ReactS3Client
+      .deleteFile(fileToDelete[1])
+      .then((response) => {
+        console.error(response);
+      })
+      .catch((err) => console.error(err, 'error from deleteSightingEvent'));
+  }
+
   sightingEditEvent = () => {
     const { sightingId } = this.props.match.params;
     const userId = authData.getUid();
     if (this.state.selectedFile !== null) {
+      this.deletePrevImage();
       ReactS3Client
         .uploadFile(this.state.selectedFile)
         .then((data) => {

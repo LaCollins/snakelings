@@ -95,9 +95,20 @@ class ProfileForm extends React.Component {
       .catch((error) => console.error('err from save profile', error));
   }
 
+  deletePrevImage = () => {
+    const fileToDelete = this.state.imageUrl.split('snakes/');
+    ReactS3Client
+      .deleteFile(fileToDelete[1])
+      .then((response) => {
+        console.error(response);
+      })
+      .catch((err) => console.error(err, 'error from deleteSightingEvent'));
+  }
+
   saveUpdatedProfileEvent = () => {
     const userId = this.state.profileId;
     if (this.state.selectedFile !== null) {
+      this.deletePrevImage();
       ReactS3Client
         .uploadFile(this.state.selectedFile)
         .then((data) => {
