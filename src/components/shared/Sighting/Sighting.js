@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import S3 from 'react-aws-s3';
 import sightingShape from '../../../helpers/propz/sightingShape';
 import snakelingsData from '../../../helpers/data/snakelingsData';
 import statesData from '../../../helpers/data/statesData';
-
+import apiKeys from '../../../helpers/apiKeys.json';
 import './Sighting.scss';
+
+const config = apiKeys.awsKeys;
+
+const ReactS3Client = new S3(config);
 
 
 class Sighting extends React.Component {
@@ -54,6 +59,13 @@ class Sighting extends React.Component {
   deleteSightingEvent = (e) => {
     const { sighting } = this.props;
     this.props.deleteSighting(sighting.id);
+    const fileToDelete = sighting.imageUrl.split('snakes/');
+    ReactS3Client
+      .deleteFile(fileToDelete[1])
+      .then((response) => {
+        console.error(response);
+      })
+      .catch((err) => console.error(err, 'error from deleteSightingEvent'));
   }
 
   render() {
