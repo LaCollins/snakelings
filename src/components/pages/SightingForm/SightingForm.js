@@ -339,7 +339,6 @@ uploadImage = () => {
               </div>)
             : (<button className="btn btn-dark" type="submit">Make Report</button>)
         }
-
         </form>
       </div>
     );
