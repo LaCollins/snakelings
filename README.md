@@ -24,7 +24,7 @@ Additionally, by reporting a snake sighting, hikers can be on alert for venomous
 * Snakelings is an app that is designed to help users identify various snake species through descriptive filters, view snakes by state, and report snake sightings.
 * Any users may view the database and use the identification features with or without logging in.
 * If a user wishes to report a sighting, they are prompted to create a profile if they do not have one already.
-* An existing user may report sightings and manage their own sitings via edit and delete functions.
+* An existing user may report sightings and manage their own sightings via edit and delete functions.
 
 ### What's in store for the future of Snakelings?
 * Future functionality for authtenticated users will include the ability to suggest potential identifications for reports with unidentified snakes as well as geo-location for users.
