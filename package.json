@@ -13,7 +13,7 @@
     "@uppy/file-input": "^1.4.2",
     "aws": "0.0.3-2",
     "aws-sdk": "^2.610.0",
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "express": "^4.17.1",
     "firebase": "^7.7.0",
